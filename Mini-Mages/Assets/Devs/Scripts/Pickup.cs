@@ -8,4 +8,9 @@ public class Pickup : MonoBehaviour
     {
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
