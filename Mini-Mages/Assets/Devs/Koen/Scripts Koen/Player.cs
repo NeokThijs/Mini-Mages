@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
     public float lookSpeed = 10f;
     public bool canMove = true;
     private Dash dashBrain;
+    private MeshRenderer MeshRenderer;
+    public Material[] colors;
 
     void Start()
     {
+        MeshRenderer = GetComponent<MeshRenderer>();
         dashBrain = GetComponent<Dash>();
+        MeshRenderer.material = GetComponent<MeshRenderer>().material = colors[playerInputObject.playerIndex];
     }
 
     // Update is called once per frame
