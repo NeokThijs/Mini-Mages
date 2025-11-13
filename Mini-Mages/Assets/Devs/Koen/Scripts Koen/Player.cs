@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInput playerInputObject;
     public float moveSpeed = 10f;
     public float lookSpeed = 10f;
+    public bool canMove = true;
+    private Dash dashBrain;
 
     void Start()
     {
-
+        dashBrain = GetComponent<Dash>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,10 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        Movement.x = context.ReadValue<Vector2>().x;
-        Movement.z = context.ReadValue<Vector2>().y;
+        if (canMove == true)
+        {
+            Movement.x = context.ReadValue<Vector2>().x;
+            Movement.z = context.ReadValue<Vector2>().y;
+        }
     }
 }

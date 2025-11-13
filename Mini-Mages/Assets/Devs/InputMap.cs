@@ -212,7 +212,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6dcce5b1-9dd0-405a-b342-d805cba9d9c5"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
