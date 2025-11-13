@@ -6,14 +6,21 @@ public class WindAttack : Attack
     public float MinObjSpeed;
     public float MaxObjSpeed;
 
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         YPos = transform.position.y;
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            UseAttack();
-        }
+        //if (Input.GetKey(KeyCode.Backspace))
+        //{
+        //    UseAttack();
+        //}
     }
 
 
@@ -21,8 +28,8 @@ public class WindAttack : Attack
     {
         base.UseAttack();
 
-        transform.Translate(Vector3.forward * ObjSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.forward, YPos);
+        Instantiate(gameObject, transform.position, Quaternion.identity);
+        rb.MovePosition(Vector3.forward * ObjSpeed * Time.deltaTime);
 
     }
 
