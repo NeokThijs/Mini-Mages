@@ -1,16 +1,40 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WindAttack : Attack
 {
-    public float MinObjSpeed;
-    public float MaxObjSpeed;
+    public float MaxObjSpeed = 1000f;
+    public float AttackSpeed = 900f;
+    public float lessSpeedPSec = 100f;
+    public float ObjectSpeed;
+
+    public float CountTillDT;
+    public float DestroyTime = 6;
+
+    private int UseTheAttack = 0;
+    private int UsedAttacks = 3;
+
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        ObjectSpeed = AttackSpeed;
+    }
 
     private void Update()
     {
+        CountTillDT += Time.deltaTime;
+
+        if(CountTillDT >= DestroyTime)
+        {
+            Destroy(gameObject);
+        }
+
         YPos = transform.position.y;
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Keyboard.current != null && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
             UseAttack();
         }
@@ -21,11 +45,19 @@ public class WindAttack : Attack
     {
         base.UseAttack();
 
-        transform.Translate(Vector3.forward * ObjSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.forward, YPos);
+        //Instantiate(gameObject, transform.position, Quaternion.identity);
+        //rb.MovePosition(Vector3.forward * ObjSpeed * Time.deltaTime);
 
+        // beweegt naar de kant de player op kijkt ( nu ff naar voren)
+        // snelheid neemt enorm toe tot een bepaald getal
+        // als die dat getal heeft gehaald
+        // dan gaat ie afremmen ( langzamer dan dat de snelheid toe nam)
+
+        rb.AddForce(Vector3.forward * ObjectSpeed);
+
+        if ( ObjectSpeed >= MaxObjSpeed )
+        {
+            ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
+        }
     }
-
-
-    
 }
