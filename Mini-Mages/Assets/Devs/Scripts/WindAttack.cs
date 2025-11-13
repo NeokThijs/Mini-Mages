@@ -4,14 +4,18 @@ using UnityEngine.InputSystem;
 
 public class WindAttack : Attack
 {
+    [Header ("Speed Settings")]
     public float MaxObjSpeed = 1000f;
     public float AttackSpeed = 900f;
     public float lessSpeedPSec = 100f;
     public float ObjectSpeed;
+    public float Hitback;
 
+    [Header ("Destroy Time")]
     public float CountTillDT;
     public float DestroyTime = 6;
 
+    [Header ("Usable Attack")]
     private int UseTheAttack = 0;
     private int UsedAttacks = 3;
 
@@ -38,6 +42,9 @@ public class WindAttack : Attack
         {
             UseAttack();
         }
+
+        
+
     }
 
 
@@ -60,4 +67,17 @@ public class WindAttack : Attack
             ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            // jij geeft de player +1 knockback
+            Debug.Log("Hapetee lekker voor je, een knockback erbij");
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(gameObject.transform.forward * Hitback, ForceMode.Impulse);
+
+        }
+    }
+
 }
