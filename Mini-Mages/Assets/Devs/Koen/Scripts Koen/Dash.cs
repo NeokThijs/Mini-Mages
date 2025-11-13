@@ -23,7 +23,6 @@ public class Dash : MonoBehaviour
         if (currentDashCooldown <= 0)
         {
             //code that let's the player know they can dash again
-            Debug.Log("Dash Ready");
         }
 
     }

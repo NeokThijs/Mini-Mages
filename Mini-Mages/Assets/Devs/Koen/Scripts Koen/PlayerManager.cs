@@ -1,16 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform[] spawnPoints;
+    public string[] playerTags;
 
-    // Update is called once per frame
-    void Update()
+    public void SetSpawn(PlayerInput player)
     {
-        
+        player.gameObject.transform.position = spawnPoints[player.playerIndex].position;
+        player.gameObject.tag = playerTags[player.playerIndex];
     }
 }
