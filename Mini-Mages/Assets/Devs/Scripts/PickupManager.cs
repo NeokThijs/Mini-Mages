@@ -20,7 +20,6 @@ public class PickupManager : MonoBehaviour
     {
         SpawnTimer += Time.deltaTime;
 
-
         if (SpawnTimer >= 5) 
         { 
             SpawnRandomPickup();

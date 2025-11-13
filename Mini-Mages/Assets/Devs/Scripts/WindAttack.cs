@@ -31,6 +31,13 @@ public class WindAttack : Attack
         Instantiate(gameObject, transform.position, Quaternion.identity);
         rb.MovePosition(Vector3.forward * ObjSpeed * Time.deltaTime);
 
+        // beweegt naar de kant de player op kijkt ( nu ff naar voren)
+        // snelheid neemt enorm toe tot een bepaald getal
+        // als die dat getal heeft gehaald
+        // dan gaat ie afremmen ( langzamer dan dat de snelheid toe nam)
+
+
+
     }
 
 
