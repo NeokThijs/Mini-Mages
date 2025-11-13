@@ -1,0 +1,44 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Dash : MonoBehaviour
+{
+    private Rigidbody rb;
+    public float DashForce;
+    [SerializeField] private float dashCooldown = 3f;
+    public float DashDuration = 0.2f;
+    [SerializeField] private float currentDashCooldown;
+    private PlayerInput PlayerInput;
+    private Player PlayerScript;
+    private void Start()
+    {
+        PlayerInput = GetComponent<PlayerInput>();
+        PlayerScript = GetComponent<Player>();
+        rb = GetComponent<Rigidbody>();
+        currentDashCooldown = dashCooldown;
+    }
+    private void Update()
+    {
+        currentDashCooldown -= Time.deltaTime;
+        if (currentDashCooldown <= 0)
+        {
+            //code that let's the player know they can dash again
+            Debug.Log("Dash Ready");
+        }
+
+    }
+     public void ExecuteDash(InputAction.CallbackContext context)
+    {
+        if (context.performed && currentDashCooldown <= 0)
+        {
+            PlayerScript.canMove = false;
+            rb.AddForce(DashForce * transform.forward, ForceMode.VelocityChange);
+            currentDashCooldown = dashCooldown;
+            Invoke("EndDash", DashDuration);
+        }
+    }
+    public void EndDash()
+    {
+        PlayerScript.canMove = true;
+    }
+}
