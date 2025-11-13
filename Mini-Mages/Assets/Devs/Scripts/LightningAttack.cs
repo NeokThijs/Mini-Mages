@@ -27,7 +27,7 @@ public class LightningAttack : Attack
             rb.AddForce(-transform.forward * ObjectSpeed);
             if (WallsBounced >= BounceLimit)
             {
-                
+                // iets van verwijderen of dat ie niet meer door bounced
             } 
 
             //als ie de player raakt, dan gaat ie kapot
