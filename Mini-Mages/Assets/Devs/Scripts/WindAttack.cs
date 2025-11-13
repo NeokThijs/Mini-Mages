@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class WindAttack : Attack
 {
+
     [Header ("Speed Settings")]
     public float MaxObjSpeed = 1000f;
     public float AttackSpeed = 900f;
@@ -60,7 +61,7 @@ public class WindAttack : Attack
         // als die dat getal heeft gehaald
         // dan gaat ie afremmen ( langzamer dan dat de snelheid toe nam)
 
-        rb.AddForce(Vector3.forward * ObjectSpeed);
+        rb.AddForce(transform.forward * ObjectSpeed);
 
         if ( ObjectSpeed >= MaxObjSpeed )
         {
@@ -73,6 +74,7 @@ public class WindAttack : Attack
         if(other.gameObject.CompareTag("Player"))
         {
             // jij geeft de player +1 knockback
+
             Debug.Log("Hapetee lekker voor je, een knockback erbij");
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
             rb.AddForce(gameObject.transform.forward * Hitback, ForceMode.Impulse);
