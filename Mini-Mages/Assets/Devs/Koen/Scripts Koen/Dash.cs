@@ -15,7 +15,6 @@ public class Dash : MonoBehaviour
         PlayerInput = GetComponent<PlayerInput>();
         PlayerScript = GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
-        currentDashCooldown = dashCooldown;
     }
     private void Update()
     {
