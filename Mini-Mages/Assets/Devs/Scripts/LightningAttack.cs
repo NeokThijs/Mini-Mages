@@ -32,24 +32,24 @@ public class LightningAttack : Attack
             rb.linearVelocity = direction * Mathf.Max(speed, 0f);
 
             WallsBounced++;
-            //transform.Rotate(new Vector3(0, 180f, 0));
-            //transform.position = Vector3.Reflect(transform.position, transform.forward);
-            
+            // elke wall bounce is kleine animatie
 
-            if (WallsBounced >= BounceLimit)
+            if (WallsBounced > BounceLimit)
             {
-                // iets van verwijderen of dat ie niet meer door bounced
+                Destroy(gameObject);
+                // bij de laatste bounce een grote animatie
             }
-
-            //als ie de player raakt, dan gaat ie kapot
 
         }
 
-
+        //als ie de player raakt, dan gaat ie kapot
         //test if statement
-        if (collision.gameObject.CompareTag("kutjebef"))
+        if (collision.gameObject.CompareTag("GaFFDood"))
         {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
 
+            //instantiate grote animatie
         }
 
     }
