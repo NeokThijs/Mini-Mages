@@ -3,6 +3,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class LightningAttack : Attack
 {
+    [Header ("Attack Var")]
     public float ObjectSpeed;
 
     public float WallsBounced;
@@ -10,6 +11,11 @@ public class LightningAttack : Attack
     private Rigidbody rb;
 
     Vector3 lastVelocity;
+
+    [Header("Usable Attack")]
+    private int UseTheAttack = 0;
+    private int UsedAttacks = 3;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,9 +49,9 @@ public class LightningAttack : Attack
         }
 
         //als ie de player raakt, dan gaat ie kapot
-        //test if statement
-        if (collision.gameObject.CompareTag("GaFFDood"))
+        if (collision.gameObject.CompareTag("GaFFDood")) // tag nog veranderd worden
         {
+            // +1 knockback
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
