@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     private Dash dashBrain;
     private MeshRenderer MeshRenderer;
     public Material[] colors;
+    private Rigidbody rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         MeshRenderer = GetComponent<MeshRenderer>();
         dashBrain = GetComponent<Dash>();
         MeshRenderer.material = GetComponent<MeshRenderer>().material = colors[playerInputObject.playerIndex];
@@ -43,6 +45,14 @@ public class Player : MonoBehaviour
         {
             Movement.x = context.ReadValue<Vector2>().x;
             Movement.z = context.ReadValue<Vector2>().y;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall") && rb.linearVelocity.z >= 10)
+        {
+            canMove = false;
         }
     }
 }
