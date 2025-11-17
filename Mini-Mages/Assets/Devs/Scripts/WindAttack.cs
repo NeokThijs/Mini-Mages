@@ -12,10 +12,6 @@ public class WindAttack : Attack
     public float ObjectSpeed;
     public float Hitback;
 
-    [Header ("Destroy Time")]
-    public float CountTillDT;
-    public float DestroyTime = 6;
-
 
     private Rigidbody rb;
 
@@ -23,13 +19,11 @@ public class WindAttack : Attack
     {
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
-        rb.AddForce(transform.forward * ObjectSpeed);
+        rb.AddForce(transform.forward * ObjectSpeed); // lerpen
     }
 
     private void Update()
     {
-        
-
         CountTillDT += Time.deltaTime;
 
         if(CountTillDT >= DestroyTime)
@@ -44,11 +38,11 @@ public class WindAttack : Attack
             UseAttack();
         }
 
-        if (ObjectSpeed >= MaxObjSpeed)
-        {
-            ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
-        }
-
+        //if (ObjectSpeed >= MaxObjSpeed)
+        //{
+        //    ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
+        //}
+        ObjectSpeed -= lessSpeedPSec ;
 
     }
     private void OnTriggerEnter(Collider other)

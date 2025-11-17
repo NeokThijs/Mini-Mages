@@ -21,9 +21,9 @@ public class PlayerAttackManager : MonoBehaviour
     {
         if (SpecialAttack != null && AttackAmount >= 1)
         {
-            if (Keyboard.current.spaceKey.isPressed) // moet ergens anders komen, zit hier ff voor de "kloppende code"
-            { 
-
+            if (Keyboard.current.spaceKey.wasPressedThisFrame) // moet ergens anders komen, zit hier ff voor de "kloppende code"
+            {
+                AttackAmount -= 1;
                 UseAttack();
             }
         }
@@ -34,7 +34,6 @@ public class PlayerAttackManager : MonoBehaviour
         // gebruik attack / spawnen
         // telt 1 ervanaf, als ie tot 0 is dan verwijderen
         Instantiate(SpecialAttack, PlaceAttack.position, Quaternion.identity);
-        AttackAmount -= 1;
         if (AttackAmount <= NoAttacksLeft)
         {
             SpecialAttack = null;

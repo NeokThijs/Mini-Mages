@@ -19,6 +19,13 @@ public class FireAttack : Attack
     private void Update()
     {
         rb.AddForce(transform.forward * ObjectSpeed);
+
+        CountTillDT += Time.deltaTime;
+
+        if (CountTillDT >= DestroyTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
