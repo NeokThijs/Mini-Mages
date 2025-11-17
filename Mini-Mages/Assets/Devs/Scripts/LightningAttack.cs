@@ -22,6 +22,13 @@ public class LightningAttack : Attack
     {
         rb.AddForce(transform.forward * ObjectSpeed); // object speed
         lastVelocity = rb.linearVelocity;
+
+        CountTillDT += Time.deltaTime;
+
+        if (CountTillDT >= DestroyTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,7 +52,7 @@ public class LightningAttack : Attack
         }
 
         //als ie de player raakt, dan gaat ie kapot
-        if (collision.gameObject.CompareTag("GaFFDood")) // tag nog veranderd worden
+        if (collision.gameObject.CompareTag("Player1")) // tag nog veranderd worden
         {
             // +1 knockback
             Destroy(collision.gameObject);

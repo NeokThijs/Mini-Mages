@@ -8,6 +8,11 @@ public class Attack : MonoBehaviour
     public float HitRange;
 
     public float YPos;
+
+    [Header("Destroy Time")]
+    public float CountTillDT;
+    public float DestroyTime = 6;
+
     public virtual void UseAttack()
     {
 
