@@ -23,10 +23,13 @@ public class WindAttack : Attack
     {
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
+        rb.AddForce(transform.forward * ObjectSpeed);
     }
 
     private void Update()
     {
+        
+
         CountTillDT += Time.deltaTime;
 
         if(CountTillDT >= DestroyTime)
@@ -41,30 +44,13 @@ public class WindAttack : Attack
             UseAttack();
         }
 
-        
-
-    }
-
-
-    public override void UseAttack()
-    {
-        base.UseAttack();
-
-        UsedAttacks++;
-
-        if (UseTheAttack == UsedAttacks)
-        {
-            // dan moet ie gewoon verwijderd worden uit inventory achtig iets???
-        }
-
-        rb.AddForce(transform.forward * ObjectSpeed);
-
-        if ( ObjectSpeed >= MaxObjSpeed )
+        if (ObjectSpeed >= MaxObjSpeed)
         {
             ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
         }
-    }
 
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))

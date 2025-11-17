@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttackManager : MonoBehaviour
 {
@@ -18,9 +19,13 @@ public class PlayerAttackManager : MonoBehaviour
     }
     private void CheckAttack() // komt later
     {
-        if (SpecialAttack == null)
+        if (SpecialAttack != null && AttackAmount >= 1)
         {
+            if (Keyboard.current.spaceKey.isPressed) // moet ergens anders komen, zit hier ff voor de "kloppende code"
+            { 
 
+                UseAttack();
+            }
         }
     }
 
@@ -28,6 +33,12 @@ public class PlayerAttackManager : MonoBehaviour
     {
         // gebruik attack / spawnen
         // telt 1 ervanaf, als ie tot 0 is dan verwijderen
+        Instantiate(SpecialAttack, PlaceAttack.position, Quaternion.identity);
+        AttackAmount -= 1;
+        if (AttackAmount <= NoAttacksLeft)
+        {
+            SpecialAttack = null;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
