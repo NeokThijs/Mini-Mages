@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6082535754736518449}
   - component: {fileID: 5563468401977578066}
   - component: {fileID: 7069075633451147498}
+  - component: {fileID: 8069803229593415027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -230,6 +231,7 @@ MonoBehaviour:
   colors:
   - {fileID: 2100000, guid: 1633ac777d0d576478cac3f621624978, type: 2}
   - {fileID: 2100000, guid: 6d1a05a284799884da05b7d40781d4f9, type: 2}
+  hitByFire: 0
 --- !u!114 &7069075633451147498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +248,21 @@ MonoBehaviour:
   dashCooldown: 2
   DashDuration: 0.2
   currentDashCooldown: 0
+--- !u!114 &8069803229593415027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260186430510179831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322e47334246e694ea2ab02b4c58b3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackManager
+  Wack: {fileID: 0}
+  SpecialAttack: {fileID: 0}
+  PlaceAttack: {fileID: 0}
 --- !u!1 &7595703254293250362
 GameObject:
   m_ObjectHideFlags: 0

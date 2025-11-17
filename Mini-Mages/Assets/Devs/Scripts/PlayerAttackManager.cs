@@ -6,10 +6,11 @@ public class PlayerAttackManager : MonoBehaviour
 {
     [SerializeField] private GameObject Wack;
     [SerializeField] private GameObject SpecialAttack;
-    
 
-    public int NoAttacksLeft = 0;
-    public int AttackAmount = 3;
+    [SerializeField] private Transform PlaceAttack;
+
+    private int NoAttacksLeft = 0;
+    private int AttackAmount = 3;
 
     private void Update()
     {
@@ -44,6 +45,7 @@ public class PlayerAttackManager : MonoBehaviour
             if (other.gameObject.CompareTag("Pickup"))
             {
                 SpecialAttack = pickupScript.AttackObject;
+                Debug.Log("attack vervangen");
             }
         }
         else
@@ -51,6 +53,7 @@ public class PlayerAttackManager : MonoBehaviour
             if (other.gameObject.CompareTag("Pickup"))
             {
                 SpecialAttack = pickupScript.AttackObject;
+                Debug.Log("attack erbij");
             }
         }
     }
