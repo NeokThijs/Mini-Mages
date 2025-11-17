@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
             Movement = Vector3.zero;
             rb.linearVelocity = Vector3.zero;
         }
-        else if (collision.gameObject.CompareTag("FireBall"))
+        else if (collision.gameObject.CompareTag("FireAttack"))
         {
             hitByFire = true;
         }
