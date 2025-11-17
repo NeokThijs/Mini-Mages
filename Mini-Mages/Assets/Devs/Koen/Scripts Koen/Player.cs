@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour
     private MeshRenderer MeshRenderer;
     public Material[] colors;
     private Rigidbody rb;
+    public bool hitByFire = false;
+    private float fireDuration = 5f;
+    private float fireTimer = 0f;
 
     void Start()
     {
@@ -30,13 +34,22 @@ public class Player : MonoBehaviour
         // If there is movement, rotate to face the movement direction.
         if (worldMove.sqrMagnitude > 0.0001f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(worldMove.normalized);
-            // Smoothly rotate toward the target rotation. For instant rotation use: transform.rotation = targetRotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed * Time.deltaTime);
+             Quaternion targetRotation = Quaternion.LookRotation(worldMove.normalized);
+             // Smoothly rotate toward the target rotation. For instant rotation use: transform.rotation = targetRotation;
+             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed * Time.deltaTime);
         }
-
         // Move in world space so changing the GameObject's rotation does NOT change the movement direction.
         transform.Translate(worldMove * Time.deltaTime * moveSpeed, Space.World);
+        if (hitByFire)
+        {
+            fireTimer += Time.deltaTime;
+            if (fireTimer >= fireDuration)
+            {
+                hitByFire = false;
+                fireTimer = 0f;
+            }
+            assOnFire();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -50,9 +63,20 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall") && rb.linearVelocity.z >= 10)
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            canMove = false;
+            Debug.Log("hit wall");
+            canMove = false;  
+            Movement = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
+        }
+    }
+
+    public void assOnFire()
+    {
+        if (hitByFire == true)
+        {
+            rb.AddForce(15F * transform.forward, ForceMode.Acceleration);
         }
     }
 }
