@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class PlayerAttackManager : MonoBehaviour
 {
     [SerializeField] private GameObject Wack;
     [SerializeField] private GameObject SpecialAttack;
+    
 
     public int NoAttacksLeft = 0;
     public int AttackAmount = 3;
@@ -27,10 +29,30 @@ public class PlayerAttackManager : MonoBehaviour
         // telt 1 ervanaf, als ie tot 0 is dan verwijderen
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // de pickup oppakken die een tag heeft van pickup
-        // attack v/d pickup word in de special attack dr in gezet
+        // attack v/d pickup word in de special attack dr ingezet
+
+        Pickup pickupScript = other.GetComponent<Pickup>();
+
+        
+
+        if ( SpecialAttack != null)
+        {
+            SpecialAttack = null;
+            if (other.gameObject.CompareTag("Pickup"))
+            {
+                SpecialAttack = pickupScript.AttackObject;
+            }
+        }
+        else
+        {
+            if (other.gameObject.CompareTag("Pickup"))
+            {
+                SpecialAttack = pickupScript.AttackObject;
+            }
+        }
     }
 
 }

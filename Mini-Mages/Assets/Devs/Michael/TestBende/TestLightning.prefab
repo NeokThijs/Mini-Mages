@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 206191213351731988}
   - component: {fileID: 30582237770255982}
   - component: {fileID: 8993432132471165390}
+  - component: {fileID: 849220093135623091}
   m_Layer: 0
   m_Name: TestLightning
-  m_TagString: Untagged
+  m_TagString: LightningAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &849220093135623091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691619443718096003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d53a8ee2b76275439fa113c5193195e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pickup
+  AttackObject: {fileID: 8492802622328227788, guid: a2e9637bea750b540a1cbaabd668f2ab, type: 3}
