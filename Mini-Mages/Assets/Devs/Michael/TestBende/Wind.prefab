@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1772620671636269154}
   - component: {fileID: 4754968168104377335}
   - component: {fileID: 2980615589836029285}
+  - component: {fileID: 8745980512308032537}
   m_Layer: 0
   m_Name: Wind
   m_TagString: WindAttack
@@ -127,3 +128,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
   AttackObject: {fileID: 1651467302455331050, guid: 87a9f86f6fd68ef44a15f0cd8497cbe7, type: 3}
+--- !u!54 &8745980512308032537
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213570899505717385}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
