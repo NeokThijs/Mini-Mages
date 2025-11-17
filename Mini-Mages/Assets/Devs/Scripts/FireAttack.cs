@@ -4,10 +4,7 @@ public class FireAttack : Attack
 {
     [Header ("Fire Attack")]
     public float ObjectSpeed;
-
-
-
-    [SerializeField] private Transform testWaypoint; // de player er naar toe laten lopen
+    public float PAMovement = 3; // player automatic movement, voor die peper in je reet.
 
     private Rigidbody rb;
 
@@ -32,8 +29,14 @@ public class FireAttack : Attack
             // +1 knockback
             // verhoogt de movement
             // loopt automatisch naar een kant op 
-            collision.gameObject.transform.position = Vector3.forward * ObjectSpeed; // test om naar een transform toe te lopen
-            Debug.Log("hij beweegt een kant op");
+            Rigidbody hitRb = collision.gameObject.GetComponent<Rigidbody>(); // moet de player worden
+
+            if (hitRb != null)
+            {
+                Vector3 dir = Vector3.forward;
+
+                hitRb.linearVelocity = dir * 5f;   // richting de testwaypoint // pamovement word 5f trouwens
+            }
 
             Destroy(gameObject);
 
