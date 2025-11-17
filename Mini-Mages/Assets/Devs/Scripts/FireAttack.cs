@@ -8,9 +8,8 @@ public class FireAttack : Attack
 
     private Rigidbody rb;
 
-    [Header("Usable Attack")]
-    private int UseTheAttack = 0;
-    private int UsedAttacks = 3;
+    private float AutoWalkTimer;
+    private float AWTimerDone = 3;
 
     private void Start()
     {
@@ -26,18 +25,6 @@ public class FireAttack : Attack
     {
         if (collision.gameObject.CompareTag("GaFFDood")) // tag nog veranderd worden naar de player
         {
-            // +1 knockback
-            // verhoogt de movement
-            // loopt automatisch naar een kant op 
-            Rigidbody hitRb = collision.gameObject.GetComponent<Rigidbody>(); // moet de player worden
-
-            if (hitRb != null)
-            {
-                Vector3 dir = Vector3.forward;
-
-                hitRb.linearVelocity = dir * 5f;   // richting de testwaypoint // pamovement word 5f trouwens
-            }
-
             Destroy(gameObject);
 
             //instantiate animatie

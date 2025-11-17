@@ -16,9 +16,6 @@ public class WindAttack : Attack
     public float CountTillDT;
     public float DestroyTime = 6;
 
-    [Header ("Usable Attack")]
-    private int UseTheAttack = 0;
-    private int UsedAttacks = 3;
 
     private Rigidbody rb;
 
@@ -53,13 +50,12 @@ public class WindAttack : Attack
     {
         base.UseAttack();
 
-        //Instantiate(gameObject, transform.position, Quaternion.identity);
-        //rb.MovePosition(Vector3.forward * ObjSpeed * Time.deltaTime);
+        UsedAttacks++;
 
-        // beweegt naar de kant de player op kijkt ( nu ff naar voren)
-        // snelheid neemt enorm toe tot een bepaald getal
-        // als die dat getal heeft gehaald
-        // dan gaat ie afremmen ( langzamer dan dat de snelheid toe nam)
+        if (UseTheAttack == UsedAttacks)
+        {
+            // dan moet ie gewoon verwijderd worden uit inventory achtig iets???
+        }
 
         rb.AddForce(transform.forward * ObjectSpeed);
 
