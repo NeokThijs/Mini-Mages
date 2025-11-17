@@ -4,16 +4,12 @@ public class FireAttack : Attack
 {
     [Header ("Fire Attack")]
     public float ObjectSpeed;
-
-
-
-    [SerializeField] private Transform testWaypoint; // de player er naar toe laten lopen
+    public float PAMovement = 3; // player automatic movement, voor die peper in je reet.
 
     private Rigidbody rb;
 
-    [Header("Usable Attack")]
-    private int UseTheAttack = 0;
-    private int UsedAttacks = 3;
+    private float AutoWalkTimer;
+    private float AWTimerDone = 3;
 
     private void Start()
     {
@@ -29,12 +25,6 @@ public class FireAttack : Attack
     {
         if (collision.gameObject.CompareTag("GaFFDood")) // tag nog veranderd worden naar de player
         {
-            // +1 knockback
-            // verhoogt de movement
-            // loopt automatisch naar een kant op 
-            collision.gameObject.transform.position = Vector3.forward * ObjectSpeed; // test om naar een transform toe te lopen
-            Debug.Log("hij beweegt een kant op");
-
             Destroy(gameObject);
 
             //instantiate animatie

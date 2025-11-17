@@ -10,6 +10,9 @@ TagManager:
   - Player4
   - Wall
   - GaFFDood
+  - FireAttack
+  - LightningAttack
+  - WindAttack
   layers:
   - Default
   - TransparentFX

@@ -12,10 +12,6 @@ public class LightningAttack : Attack
 
     Vector3 lastVelocity;
 
-    [Header("Usable Attack")]
-    private int UseTheAttack = 0;
-    private int UsedAttacks = 3;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

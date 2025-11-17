@@ -9,6 +9,10 @@ public class Attack : MonoBehaviour
 
     public float YPos;
 
+    [Header("Usable Attack")]
+    public int UseTheAttack = 0;
+    public int UsedAttacks = 3;
+
     public virtual void UseAttack()
     {
 
