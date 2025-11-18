@@ -188,7 +188,19 @@ MonoBehaviour:
     m_ActionId: 90b46a93-8960-452e-92e4-f6bba3292740
     m_ActionName: 'Players/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8069803229593415027}
+        m_TargetAssemblyTypeName: PlayerAttackManager, Assembly-CSharp
+        m_MethodName: UseAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8717b7ab-d2d8-4c85-a9d7-5cc494d2cc0b
     m_ActionName: 'Players/Attack[/Keyboard/space]'
   - m_PersistentCalls:
@@ -262,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322e47334246e694ea2ab02b4c58b3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackManager
-  Wack: {fileID: 0}
+  Wack: {fileID: 8770470255793179720, guid: 8945c4e5bcc0add4d993197fd3fdde5e, type: 3}
   SpecialAttack: {fileID: 0}
   PlaceAttack: {fileID: 6077616093076398274}
 --- !u!1 &4783753795546886844
