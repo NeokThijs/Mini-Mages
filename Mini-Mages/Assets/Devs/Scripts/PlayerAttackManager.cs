@@ -8,19 +8,18 @@ public class PlayerAttackManager : MonoBehaviour
     [SerializeField] private GameObject Wack;
     [SerializeField] private GameObject SpecialAttack;
     [SerializeField] private Transform PlaceAttack;
-
-    private int NoAttacksLeft = 0;
+    
     private int AttackAmount = 3;
 
     private void Update()
     {
         CheckAttack();
     }
-    private void CheckAttack() // komt later
+    private void CheckAttack() // kijkt of er een special attack is, en of die nog niet op is
     {
         if(SpecialAttack != null)
         {
-            if (AttackAmount <= NoAttacksLeft)
+            if (AttackAmount <= 0f)
             {
                 SpecialAttack = null;
             }
@@ -31,14 +30,23 @@ public class PlayerAttackManager : MonoBehaviour
         }
     }
 
-    private void UseAttack() // attack gebruiken
+    public void UseAttack(InputAction.CallbackContext context) // attack gebruiken
     {
         // gebruik attack / spawnen
         // telt 1 ervanaf, als ie tot 0 is dan verwijderen
-        if (SpecialAttack != null && AttackAmount >= 1)
+        if (context.performed)
         {
-            Instantiate(SpecialAttack, PlaceAttack.position, Quaternion.identity);
-            AttackAmount -= 1;
+        if (SpecialAttack != null && AttackAmount > 0)
+        {
+            Instantiate(SpecialAttack, PlaceAttack.position, PlaceAttack.rotation);
+            Debug.Log("special attack gebruikt");
+            AttackAmount --; //attack charges -1
+            Debug.Log(AttackAmount + "charges left");
+        }
+        else if (SpecialAttack == null)
+        {
+            Instantiate(Wack, PlaceAttack.position, PlaceAttack.rotation);
+        }
         }
     }
 
@@ -46,23 +54,19 @@ public class PlayerAttackManager : MonoBehaviour
     {
         // de pickup oppakken die een tag heeft van pickup
         // attack v/d pickup word in de special attack dr ingezet
-        Pickup pickupScript = other.GetComponent<Pickup>();
-
-        
-
-        if (SpecialAttack != null)
+        if (other.gameObject.CompareTag("Pickup") == false)
         {
-            SpecialAttack = null;
-            if (other.gameObject.CompareTag("Pickup"))
+            return;
+        }
+        else if (other.gameObject.CompareTag("Pickup"))
+        {
+            Pickup pickupScript = other.GetComponent<Pickup>();
+            if (SpecialAttack != null)
             {
                 SpecialAttack = pickupScript.AttackObject;
                 Debug.Log("attack vervangen");
             }
-        }
-        else if (other.gameObject.CompareTag("Pickup"))
-        {    
-            SpecialAttack = pickupScript.AttackObject;
-            Debug.Log("attack erbij");
+
         }
     }
 
