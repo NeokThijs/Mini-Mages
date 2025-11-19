@@ -16,13 +16,14 @@ public class Player : MonoBehaviour
     public bool hitByFire = false;
     private float fireDuration = 5f;
     private float fireTimer = 0f;
+    public GameObject GnomeHat;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         MeshRenderer = GetComponent<MeshRenderer>();
         dashBrain = GetComponent<Dash>();
-        MeshRenderer.material = GetComponent<MeshRenderer>().material = colors[playerInputObject.playerIndex];
+        MeshRenderer.material = GnomeHat.GetComponent<MeshRenderer>().material = colors[playerInputObject.playerIndex];
     }
 
     // Update is called once per frame
@@ -66,7 +67,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             Debug.Log("hit wall");
-            canMove = false;  
+            canMove = false;
+            hitByFire = false;
             Movement = Vector3.zero;
             rb.linearVelocity = Vector3.zero;
         }
@@ -80,7 +82,7 @@ public class Player : MonoBehaviour
     {
         if (hitByFire == true)
         {
-            rb.AddForce(15F * transform.forward, ForceMode.Acceleration);
+            rb.AddForce(10f * transform.forward, ForceMode.Acceleration);
         }
     }
 }
