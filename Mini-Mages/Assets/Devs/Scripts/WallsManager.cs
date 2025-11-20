@@ -10,6 +10,7 @@ public class WallsManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> walls;
     [SerializeField] private GameObject currentWall;
+    private bool GotWall = false;
 
     void Update()
     {
@@ -45,26 +46,52 @@ public class WallsManager : MonoBehaviour
 
     private void RandomWallUp()
     {
-        currentWall = walls[Random.Range(0, walls.Count)];
-        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-
-        WOScript.MoveUp();
+        if (GotWall == false)
+        {
+            currentWall = walls[Random.Range(0, walls.Count)];
+            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
+            WOScript.MoveUp();
+            GotWall = true;
+            if ( currentWall.transform.position.y == WOScript.maxHeight)
+            {
+                currentWall = null;
+                GotWall = false;
+            }
+        }
     }
 
     private void RandomWallDown()
     {
-        currentWall = walls[Random.Range(0, walls.Count)];
-        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-
-        WOScript.MoveDown();
+        if (GotWall == false)
+        {
+            currentWall = walls[Random.Range(0, walls.Count)];
+            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
+            WOScript.MoveDown();
+            GotWall = true;
+            if (currentWall.transform.position.y == WOScript.minHeight)
+            {
+                currentWall = null;
+                GotWall = false;
+                Debug.Log("word null en false");
+            }
+        }
     }
 
     private void RandomWallStop()
     {
-        currentWall = walls[Random.Range(0, walls.Count)];
-        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-
-        WOScript.Neutral();
+        if(GotWall == false)
+        {
+            currentWall = walls[Random.Range(0, walls.Count)];
+            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
+            WOScript.Neutral();
+            GotWall = true;
+            if (currentWall.transform.position.y == WOScript.mainHeight)
+            {
+                currentWall = null;
+                GotWall = false;
+                Debug.Log("word null en false");
+            }
+        }
     }
 
 }
