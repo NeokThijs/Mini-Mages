@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        MeshRenderer = GetComponent<MeshRenderer>();
         dashBrain = GetComponent<Dash>();
-        MeshRenderer.material = GnomeHat.GetComponent<MeshRenderer>().material = colors[playerInputObject.playerIndex];
+        MeshRenderer = GnomeHat.GetComponent<MeshRenderer>();
+        MeshRenderer.material = colors[playerInputObject.playerIndex];
     }
 
     // Update is called once per frame
