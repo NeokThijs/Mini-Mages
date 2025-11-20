@@ -9,7 +9,7 @@ public class WallsManager : MonoBehaviour
     [SerializeField] private WallHeight state = WallHeight.Normal;
 
     [SerializeField] private List<GameObject> walls;
-    [SerializeField] private GameObject currentWall;
+    [SerializeField] private WallObjectSelf currentWall;
     private bool GotWall = false;
 
     void Update()
@@ -17,81 +17,76 @@ public class WallsManager : MonoBehaviour
         // toetsen om te testen
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
+            GotWall = false;
+            currentWall = null;
             state = WallHeight.Up;
         }
 
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
+            GotWall = false;
+            currentWall = null;
+
             state = WallHeight.Down;
         }
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
+            GotWall = false;
+            currentWall = null;
+
             state = WallHeight.Normal;
         }
 
         switch (state)
         {
             case WallHeight.Up:
-                RandomWallUp();
+                SelectRandomWall();
+                if (currentWall != null)
+                {
+                    currentWall.MoveUp();
+                    if (currentWall.transform.position.y >= currentWall.maxHeight)
+                    {
+                        currentWall = null;
+                        GotWall = false;
+                    }
+                }
                 break;
             case WallHeight.Down:
-                RandomWallDown();
+                SelectRandomWall();
+                if (currentWall != null)
+                {
+                    currentWall.MoveDown();
+                    if (currentWall.transform.position.y <= currentWall.minHeight)
+                    {
+                        currentWall = null;
+                        GotWall = false;
+                        Debug.Log("word null en false");
+                    }
+                }
                 break;
             case WallHeight.Normal:
-                RandomWallStop();
+                SelectRandomWall();
+                if (currentWall != null)
+                {
+                    currentWall.Neutral();
+                    if (currentWall.IsResetToNeutral())
+                    {
+                        currentWall = null;
+                        GotWall = false;
+                        Debug.Log("word null en false");
+                    }
+                }
                 break;
         }
     }
 
-    private void RandomWallUp()
+    private void SelectRandomWall()
     {
         if (GotWall == false)
         {
-            currentWall = walls[Random.Range(0, walls.Count)];
-            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-            WOScript.MoveUp();
+            currentWall = walls[Random.Range(0, walls.Count)].GetComponent<WallObjectSelf>();
             GotWall = true;
-            if ( currentWall.transform.position.y == WOScript.maxHeight)
-            {
-                currentWall = null;
-                GotWall = false;
-            }
         }
     }
-
-    private void RandomWallDown()
-    {
-        if (GotWall == false)
-        {
-            currentWall = walls[Random.Range(0, walls.Count)];
-            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-            WOScript.MoveDown();
-            GotWall = true;
-            if (currentWall.transform.position.y == WOScript.minHeight)
-            {
-                currentWall = null;
-                GotWall = false;
-                Debug.Log("word null en false");
-            }
-        }
-    }
-
-    private void RandomWallStop()
-    {
-        if(GotWall == false)
-        {
-            currentWall = walls[Random.Range(0, walls.Count)];
-            WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
-            WOScript.Neutral();
-            GotWall = true;
-            if (currentWall.transform.position.y == WOScript.mainHeight)
-            {
-                currentWall = null;
-                GotWall = false;
-                Debug.Log("word null en false");
-            }
-        }
-    }
-
 }
