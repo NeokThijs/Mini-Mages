@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerAttackManager : MonoBehaviour
 {
     [SerializeField] private GameObject Wack;
-    [SerializeField] private GameObject SpecialAttack;
+    [SerializeField] public GameObject SpecialAttack;
     [SerializeField] private Transform PlaceAttack;
     
-    private int AttackAmount = 3;
+    public float AttackAmount;
 
     private void Update()
     {
@@ -50,24 +50,24 @@ public class PlayerAttackManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         // de pickup oppakken die een tag heeft van pickup
         // attack v/d pickup word in de special attack dr ingezet
-        if (other.gameObject.CompareTag("Pickup") == false)
-        {
-            return;
-        }
-        else if (other.gameObject.CompareTag("Pickup"))
-        {
-            Pickup pickupScript = other.GetComponent<Pickup>();
-            if (SpecialAttack != null)
-            {
-                SpecialAttack = pickupScript.AttackObject;
-                Debug.Log("attack vervangen");
-            }
+        //if (collision.gameObject.CompareTag("Pickup") == false)
+        //{
+        //    return;
+        //}
+        //else if (collision.gameObject.CompareTag("Pickup"))
+        //{
+        //    Pickup pickupScript = collision.gameObject.GetComponent<Pickup>();
+        //    if (SpecialAttack != null)
+        //    {
+        //        SpecialAttack = pickupScript.AttackObject;
+        //        Debug.Log("attack vervangen");
+        //    }
 
-        }
+        //}
     }
 
 }
