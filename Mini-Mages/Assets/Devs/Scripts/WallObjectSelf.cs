@@ -8,37 +8,40 @@ public class WallObjectSelf : MonoBehaviour
     [SerializeField] public float mainHeight = 0f;
     [SerializeField] public float ObjectSpeed = 4f;
 
+    private Vector3 m_StartPos;
+
+    private void Start()
+    {
+        m_StartPos = transform.position;
+    }
+
     public void MoveUp()
     {
-        if (transform.position.y < maxHeight)
+        if (transform.position.y <= maxHeight)
         {
-            transform.position += Vector3.up * ObjectSpeed * Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, maxHeight, 0), Time.deltaTime * ObjectSpeed);
             Debug.Log(" Muur omhoog");
         }
     }
 
     public void MoveDown()
     {
-        if (transform.position.y > minHeight)
+        if (transform.position.y >= minHeight)
         {
-            transform.position += Vector3.down * ObjectSpeed * Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, minHeight, 0), Time.deltaTime * ObjectSpeed);
             Debug.Log("Muur omlaag");
         }
     }
 
-    
+
     public void Neutral()
     {
-        if (transform.position.y >= maxHeight)
-        {
-            transform.position += Vector3.zero * ObjectSpeed * Time.deltaTime;
-            Debug.Log("terug naar normale positie // was boven");
-        } else 
-        if(transform.position.y <= minHeight)
-        {
-            transform.position += Vector3.zero * ObjectSpeed * Time.deltaTime;
-            Debug.Log("terug naar normale positie // was beneden");
-        }
+        transform.position = Vector3.Lerp(transform.position, m_StartPos, Time.deltaTime * ObjectSpeed);
     }
 
+    public bool IsResetToNeutral()
+    {
+        if (transform.position == m_StartPos) return true;
+        return false;
+    }
 }
