@@ -1,54 +1,70 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WallsManager : MonoBehaviour
 {
+    enum WallHeight { Normal, Up, Down }
+    [SerializeField] private WallHeight state = WallHeight.Normal;
+
     [SerializeField] private List<GameObject> walls;
-
-    private float ObjectSpeed = 4f;
-
-    private bool IsWallUp = false;
-    private bool IsWallDown = false;
-
-    private float RotateWallTimer = 3;
-    
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject currentWall;
 
     void Update()
     {
-        RotateWallTimer -= Time.deltaTime;
-
-        if (RotateWallTimer <= 0)
+        // toetsen om te testen
+        if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            YAsWallUp();
-            RotateWallTimer = 3;
+            state = WallHeight.Up;
+        }
+
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            state = WallHeight.Down;
+        }
+
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            state = WallHeight.Normal;
+        }
+
+        switch (state)
+        {
+            case WallHeight.Up:
+                RandomWallUp();
+                break;
+            case WallHeight.Down:
+                RandomWallDown();
+                break;
+            case WallHeight.Normal:
+                RandomWallStop();
+                break;
         }
     }
 
-    private void YAsWallUp()
+    private void RandomWallUp()
     {
-        Vector3 WallUp = new Vector3(transform.position.x, 1, transform.position.z);
+        currentWall = walls[Random.Range(0, walls.Count)];
+        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
 
-        if( IsWallUp == false && IsWallDown == false)
-        {
-            walls[Random.Range(0, walls.Count)].transform.position = Vector3.MoveTowards(walls[Random.Range(0, walls.Count)].transform.position, WallUp, ObjectSpeed * Time.deltaTime);
-            IsWallUp = true;
-        }
-        
+        WOScript.MoveUp();
     }
 
-    private void YAsWallDown()
+    private void RandomWallDown()
     {
-        Vector3 WallDown = new Vector3(transform.position.x, -2, transform.position.z);
+        currentWall = walls[Random.Range(0, walls.Count)];
+        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
 
-        if (IsWallDown == false && IsWallUp == false)
-        {
-            walls[Random.Range(0, walls.Count)].transform.position = Vector3.MoveTowards(walls[Random.Range(0, walls.Count)].transform.position, WallDown, ObjectSpeed * Time.deltaTime);
-            IsWallDown = true;
-        }
+        WOScript.MoveDown();
     }
+
+    private void RandomWallStop()
+    {
+        currentWall = walls[Random.Range(0, walls.Count)];
+        WallObjectSelf WOScript = currentWall.GetComponent<WallObjectSelf>();
+
+        WOScript.Neutral();
+    }
+
 }
