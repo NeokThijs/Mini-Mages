@@ -43,22 +43,22 @@ public class LightningAttack : Attack
             WallsBounced++;
             // elke wall bounce is kleine animatie
 
-            if (WallsBounced > BounceLimit)
-            {
-                Destroy(gameObject);
-                // bij de laatste bounce een grote animatie
-            }
+            //if (WallsBounced > BounceLimit)
+            //{
+            //    Destroy(gameObject);
+            //    // bij de laatste bounce een grote animatie
+            //}
 
         }
 
         //als ie de player raakt, dan gaat ie kapot
-        if (collision.gameObject.CompareTag("Player1")) // tag nog veranderd worden
+        if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player3") || collision.gameObject.CompareTag("Player4"))
         {
-            // +1 knockback
-            Destroy(collision.gameObject);
+            rb = collision.gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * ObjectSpeed * 2); // knockback
+            //instantiate grote animatie
             Destroy(gameObject);
 
-            //instantiate grote animatie
         }
 
     }

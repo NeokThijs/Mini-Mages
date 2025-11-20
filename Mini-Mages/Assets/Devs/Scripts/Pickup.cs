@@ -9,15 +9,17 @@ public class Pickup : MonoBehaviour
     [Header("Base Var")]
     [SerializeField] public GameObject AttackObject;
 
-    public virtual void Activate()
+    public virtual void Activate(GameObject player)
     {
-
+        player.GetComponent<PlayerAttackManager>().SpecialAttack = AttackObject;
+        player.GetComponent<PlayerAttackManager>().AttackAmount = 3;
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag ("Player2") || other.gameObject.CompareTag("Player3") || other.gameObject.CompareTag("Player4"))
         {
+            Activate(other.gameObject);
             Destroy(gameObject);
         }
     }
