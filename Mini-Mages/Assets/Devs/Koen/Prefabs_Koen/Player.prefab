@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5563468401977578066}
   - component: {fileID: 7069075633451147498}
   - component: {fileID: 8069803229593415027}
+  - component: {fileID: 976751157912389600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -280,6 +281,28 @@ MonoBehaviour:
   SpecialAttack: {fileID: 0}
   PlaceAttack: {fileID: 6077616093076398274}
   AttackAmount: 0
+--- !u!95 &976751157912389600
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260186430510179831}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+  m_Controller: {fileID: 9100000, guid: b46de08117292c84387b5183ea810a44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4783753795546886844
 GameObject:
   m_ObjectHideFlags: 0
