@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class WallObjectSelf : MonoBehaviour
 {
-    [SerializeField] private float maxHeight = 5f; // 0.6 
-    [SerializeField] private float minHeight = -2f; // -1
-    [SerializeField] private float ObjectSpeed = 4f;
+    [SerializeField] public float maxHeight = 5f; // 0.6 
+    [SerializeField] public float minHeight = -2f; // -1
+    [SerializeField] public float mainHeight = 0f;
+    [SerializeField] public float ObjectSpeed = 4f;
 
     public void MoveUp()
     {
@@ -28,14 +29,14 @@ public class WallObjectSelf : MonoBehaviour
     
     public void Neutral()
     {
-        if (transform.position.y == maxHeight)
+        if (transform.position.y >= maxHeight)
         {
-            transform.position += Vector3.down * ObjectSpeed * Time.deltaTime;
+            transform.position += Vector3.zero * ObjectSpeed * Time.deltaTime;
             Debug.Log("terug naar normale positie // was boven");
-        }
-        if (transform.position.y == minHeight)
+        } else 
+        if(transform.position.y <= minHeight)
         {
-            transform.position += Vector3.up * ObjectSpeed * Time.deltaTime;
+            transform.position += Vector3.zero * ObjectSpeed * Time.deltaTime;
             Debug.Log("terug naar normale positie // was beneden");
         }
     }
