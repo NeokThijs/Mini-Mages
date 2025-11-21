@@ -658,7 +658,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 4
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!114 &983396134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +675,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 4
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!64 &983396135
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1033,7 +1037,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 4
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!64 &1539605633
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1102,7 +1108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 10
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!64 &1788291042
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1283,7 +1291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 4
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!64 &1952936309
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1325,7 +1335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
   minHeight: -1
-  ObjectSpeed: 4
+  mainHeight: 0
+  ObjectSpeed: 2
+  DownObjectSpeed: 0.5
 --- !u!64 &2018790434
 MeshCollider:
   m_ObjectHideFlags: 0

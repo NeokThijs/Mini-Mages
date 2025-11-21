@@ -6,7 +6,8 @@ public class WallObjectSelf : MonoBehaviour
     [SerializeField] public float maxHeight = 5f; // 0.6 
     [SerializeField] public float minHeight = -2f; // -1
     [SerializeField] public float mainHeight = 0f;
-    [SerializeField] public float ObjectSpeed = 4f;
+    [SerializeField] public float ObjectSpeed = 1f;
+    [SerializeField] public float DownObjectSpeed = 1f;
 
     private Vector3 m_StartPos;
 
@@ -28,7 +29,7 @@ public class WallObjectSelf : MonoBehaviour
     {
         if (transform.position.y >= minHeight)
         {
-            transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, minHeight, 0), Time.deltaTime * ObjectSpeed);
+            transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, minHeight, 0), Time.deltaTime * DownObjectSpeed);
             Debug.Log("Muur omlaag");
         }
     }

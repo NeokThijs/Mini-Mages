@@ -45,7 +45,7 @@ public class WallsManager : MonoBehaviour
 
         WallTimer += Time.deltaTime;
 
-        if (WallTimer >= 5f && state != WallHeight.Down)
+        if (WallTimer >= 2f && state != WallHeight.Down)
         {
             GotWall = false;
             currentWall = null;
