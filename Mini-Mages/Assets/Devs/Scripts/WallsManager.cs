@@ -12,6 +12,8 @@ public class WallsManager : MonoBehaviour
     [SerializeField] private WallObjectSelf currentWall;
     private bool GotWall = false;
 
+    private float WallTimer;
+
     void Update()
     {
         // toetsen om te testen
@@ -37,6 +39,23 @@ public class WallsManager : MonoBehaviour
 
             state = WallHeight.Normal;
         }
+
+        WallTimer += Time.deltaTime;
+
+        if (WallTimer >= 5)
+        {
+            GotWall = false;
+            currentWall = null;
+            state = WallHeight.Up;
+            WallTimer = 0;
+        } 
+
+        //if (walls[0,5].gameObject.transform.position == currentWall.maxHeight) // als alle muren op die positie staan dat ie dan naar beneden begint te gaan
+        //{
+        //    GotWall = false;
+        //    currentWall = null;
+        //    state = WallHeight.Down;
+        //}
 
         switch (state)
         {
