@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +9,7 @@ public class WallsManager : MonoBehaviour
 {
     enum WallHeight { Normal, Up, Down }
     [SerializeField] private WallHeight state = WallHeight.Normal;
+    private float marge = 0.1f;
 
     [SerializeField] private List<GameObject> walls;
     [SerializeField] private WallObjectSelf currentWall;
@@ -42,29 +45,56 @@ public class WallsManager : MonoBehaviour
 
         WallTimer += Time.deltaTime;
 
-        if (WallTimer >= 5)
+        if (WallTimer >= 5f && state != WallHeight.Down)
         {
             GotWall = false;
             currentWall = null;
             state = WallHeight.Up;
             WallTimer = 0;
-        } 
+        }
 
-        //if (walls[0,5].gameObject.transform.position == currentWall.maxHeight) // als alle muren op die positie staan dat ie dan naar beneden begint te gaan
-        //{
-        //    GotWall = false;
-        //    currentWall = null;
-        //    state = WallHeight.Down;
-        //}
+        if (state == WallHeight.Down)
+        {
+            bool allAtMin = walls.All(w => {
+                var ws = w.GetComponent<WallObjectSelf>();
+                return Mathf.Abs(ws.transform.position.y - ws.minHeight) <= marge;
+            });
+
+            if (allAtMin)
+            {
+                state = WallHeight.Normal;
+                GotWall = false;
+                currentWall = null;
+                WallTimer = 0;
+            }
+        }
+
+        if (state == WallHeight.Up)
+        {
+            bool allAtMax = walls.All(w => {var ws = w.GetComponent<WallObjectSelf>();
+                return Mathf.Abs(ws.transform.position.y - ws.maxHeight) <= marge;
+            });
+
+            if (allAtMax)
+            {
+                GotWall = false;
+                currentWall = null;
+                state = WallHeight.Down;
+            }
+        }
+
+        if (!GotWall)
+        {
+            SelectRandomWall();
+        }
 
         switch (state)
         {
             case WallHeight.Up:
-                SelectRandomWall();
                 if (currentWall != null)
                 {
                     currentWall.MoveUp();
-                    if (currentWall.transform.position.y >= currentWall.maxHeight)
+                    if (currentWall.transform.position.y >= currentWall.maxHeight + marge)
                     {
                         currentWall = null;
                         GotWall = false;
@@ -72,11 +102,10 @@ public class WallsManager : MonoBehaviour
                 }
                 break;
             case WallHeight.Down:
-                SelectRandomWall();
                 if (currentWall != null)
                 {
                     currentWall.MoveDown();
-                    if (currentWall.transform.position.y <= currentWall.minHeight)
+                    if (currentWall.transform.position.y <= currentWall.minHeight + marge)
                     {
                         currentWall = null;
                         GotWall = false;
@@ -85,7 +114,6 @@ public class WallsManager : MonoBehaviour
                 }
                 break;
             case WallHeight.Normal:
-                SelectRandomWall();
                 if (currentWall != null)
                 {
                     currentWall.Neutral();
