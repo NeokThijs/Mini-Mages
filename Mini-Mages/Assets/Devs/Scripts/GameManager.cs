@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("UI (Settings)")]
     [SerializeField] private TMPro.TextMeshProUGUI roundText;
     private float roundAmount = 3;
-    private bool isRoundActive = false;
+    public bool isRoundActive = false;
 
     [SerializeField] private GameObject StartUI;
     [SerializeField] private TMPro.TMP_InputField playerAmountIF; // IF = inputfield
@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isRoundActive && playersInGame.Count == 1)
+        if (isRoundActive && playersInGame.Count == 1) // MORGEN FF NAAR KIJKEN
         {
-            StartNewRound();
+            isRoundActive = false;
         }
 
         removeStartUI += Time.unscaledDeltaTime; // timer voor geen pauze dr in
@@ -40,10 +40,10 @@ public class GameManager : MonoBehaviour
             StartUI.SetActive(false);
             Time.timeScale = 1f; // continue game
 
-            if (!isRoundActive)
+            if (isRoundActive == false)
             {
-                StartNewRound();
-                isRoundActive = true;
+                isRoundActive = true;   
+                StartNewRound();         
             }
         }
 
@@ -53,20 +53,34 @@ public class GameManager : MonoBehaviour
     {
         int UIPlayerAmount = int.Parse(playerAmountIF.text);
         PlayerAmount = UIPlayerAmount;
+        Debug.Log("spelers voor de ronde: " + PlayerAmount);
     }
 
     private void StartNewRound()
     {
-        PlayerObjToList();
+        RemoveOldPlayers();
         SpawnPlayers();
+        PlayerObjToList();
     }
 
     private void PlayerObjToList()
     {
         // zoekt de objecten met de tag player
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        playersInGame.AddRange(players);
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); // alle players zoeken
+        for (int i = 0; i < players.Length; i++)
+        {
+            playersInGame.Add(players[i]);
+        }
         Debug.Log("Voegt player toe a/d list");
+    }
+
+    private void RemoveOldPlayers()
+    {
+        for (int i = 0; i < playersInGame.Count; i++)
+        {
+            Destroy(playersInGame[i]);
+        }
+        playersInGame.Clear();
     }
 
     private void SpawnPlayers()
@@ -74,7 +88,7 @@ public class GameManager : MonoBehaviour
         for ( int i = 0; i < PlayerAmount; i++)
         {
             Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
-            Debug.Log("Spawn players");
+            Debug.Log("Spawn player");
         }
 
         
