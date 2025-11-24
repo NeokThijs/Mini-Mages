@@ -15,12 +15,11 @@ public class LightningAttack : Attack
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
 
     private void Update()
     {
-        rb.AddForce(transform.forward * ObjectSpeed); // object speed
+        rb.AddForce(transform.forward * ObjectSpeed, ForceMode.VelocityChange); // object speed
         lastVelocity = rb.linearVelocity;
 
         CountTillDT += Time.deltaTime;
@@ -29,6 +28,7 @@ public class LightningAttack : Attack
         {
             Destroy(gameObject);
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -37,25 +37,26 @@ public class LightningAttack : Attack
         {
             var speed = lastVelocity.magnitude;
             var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
+            transform.rotation = Quaternion.LookRotation(direction);
 
             rb.linearVelocity = direction * Mathf.Max(speed, 0f);
 
             WallsBounced++;
-            // elke wall bounce is kleine animatie
+            //elke wall bounce is kleine animatie
 
-            //if (WallsBounced > BounceLimit)
-            //{
-            //    Destroy(gameObject);
-            //    // bij de laatste bounce een grote animatie
-            //}
+            if (WallsBounced > BounceLimit)
+            {
+                Destroy(gameObject);
+                // bij de laatste bounce een grote animatie
+            }
 
         }
 
         //als ie de player raakt, dan gaat ie kapot
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player3") || collision.gameObject.CompareTag("Player4"))
         {
-            rb = collision.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * ObjectSpeed * 2); // knockback
+            Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
+            collisionRb.AddForce(transform.forward * ObjectSpeed * 2); // knockback
             //instantiate grote animatie
             Destroy(gameObject);
 

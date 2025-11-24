@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7724790210250055799}
+  - component: {fileID: 5876040965211929571}
   m_Layer: 6
   m_Name: WindAttack
   m_TagString: WindAttack
@@ -141,6 +142,29 @@ Transform:
   - {fileID: 6551998147108515502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5876040965211929571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651467302455331050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f2e58088a2683428d68e5827818a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindAttack
+  AttackAnimation: {fileID: 0}
+  KnockbackAmount: 1
+  HitRange: 0
+  YPos: 0
+  CountTillDT: 0
+  DestroyTime: 6
+  MaxObjSpeed: 1000
+  AttackSpeed: 900
+  lessSpeedPSec: 100
+  ObjectSpeed: 0
+  Hitback: 0
 --- !u!1 &3645963847658663052
 GameObject:
   m_ObjectHideFlags: 0

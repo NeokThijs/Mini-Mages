@@ -138,7 +138,7 @@ MonoBehaviour:
   YPos: 0
   CountTillDT: 0
   DestroyTime: 6
-  ObjectSpeed: 7
+  ObjectSpeed: 0.1
   WallsBounced: 0
   BounceLimit: 2
 --- !u!135 &5791307639399047162
@@ -148,7 +148,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8492802622328227788}
-  m_Material: {fileID: 13400000, guid: 82fda0daffa5d6a48b5ef1662e969a1a, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
