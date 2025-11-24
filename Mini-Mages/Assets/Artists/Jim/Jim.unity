@@ -146,7 +146,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108979288}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -234,7 +234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1989732985}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227674170
 GameObject:
@@ -1189,17 +1189,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175162837184369577, guid: 14c93e55de0a53642bcaa3cdb54df6e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.212
+      objectReference: {fileID: 0}
     - target: {fileID: 7445489494220632867, guid: 14c93e55de0a53642bcaa3cdb54df6e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.225
+      value: 1.929
       objectReference: {fileID: 0}
     - target: {fileID: 7445489494220632867, guid: 14c93e55de0a53642bcaa3cdb54df6e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.149
       objectReference: {fileID: 0}
     - target: {fileID: 7445489494220632867, guid: 14c93e55de0a53642bcaa3cdb54df6e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.449
       objectReference: {fileID: 0}
     - target: {fileID: 7445489494220632867, guid: 14c93e55de0a53642bcaa3cdb54df6e8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1255,3 +1259,4 @@ SceneRoots:
   - {fileID: 7735933525549146017}
   - {fileID: 240270118}
   - {fileID: 1558891996}
+  - {fileID: 108979291}
