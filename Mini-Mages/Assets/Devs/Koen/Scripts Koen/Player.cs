@@ -76,6 +76,10 @@ public class Player : MonoBehaviour
         {
             hitByFire = true;
         }
+        if (collision.gameObject.CompareTag("DeathWater"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void assOnFire()

@@ -13,11 +13,12 @@ TagManager:
   - LightningAttack
   - WindAttack
   - Pickup
+  - DeathWater
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Attacks
   - Water
   - UI
   - WindAttack
