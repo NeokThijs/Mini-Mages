@@ -19,7 +19,10 @@ public class WindAttack : Attack
     {
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
-        rb.AddForce(transform.forward * ObjectSpeed); // lerpen
+        if(rb != null)
+        {
+            rb.AddForce(transform.forward * ObjectSpeed); // lerpen
+        }
     }
 
     private void Update()
