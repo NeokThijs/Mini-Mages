@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8058517289603583179}
   - component: {fileID: 3251724373497370322}
   - component: {fileID: 7523227962481187003}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireAttack
   m_TagString: FireAttack
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.8, y: 1, z: -11.17}
-  m_LocalScale: {x: 2, y: 0.5, z: 2}
+  m_LocalScale: {x: 3, y: 0.75, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1346029928691536473}
@@ -168,9 +168,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1011671365364828227}
     m_Modifications:
+    - target: {fileID: 1932277751402822655, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670067205648575036, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2914246908685424565, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394801225812869710, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3549078731960555591, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_LocalScale.y
@@ -216,6 +228,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626126867215237328, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670032328902569256, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4907134114354453739, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
@@ -224,9 +244,17 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6527459500533253481, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7827814701360035719, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_Name
       value: PF_Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827814701360035719, guid: dab8f26f15671534f81f167d087e945f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
