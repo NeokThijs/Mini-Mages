@@ -141,6 +141,9 @@ MonoBehaviour:
   ObjectSpeed: 3
   WallsBounced: 0
   BounceLimit: 2
+  stunDuration: 1
+  hitEffect: {fileID: 6598796939649278996, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+  bounceEffect: {fileID: 8874663486578844541, guid: 6766d1fba3ef50148b2cc4140e048c63, type: 3}
 --- !u!135 &5791307639399047162
 SphereCollider:
   m_ObjectHideFlags: 0

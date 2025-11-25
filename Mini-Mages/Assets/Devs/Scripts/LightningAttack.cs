@@ -9,7 +9,10 @@ public class LightningAttack : Attack
     public float WallsBounced;
     public float BounceLimit = 2;
     private Rigidbody rb;
-    
+    public float stunDuration = 0.5f;
+    public GameObject bounceEffect;
+    public GameObject hitEffect;
+
     Vector3 lastVelocity;
 
     private void Start()
@@ -43,7 +46,6 @@ public class LightningAttack : Attack
             rb.linearVelocity = direction * Mathf.Max(speed, 0f);
 
             WallsBounced++;
-            //elke wall bounce is kleine animatie
         }
         else
         {
@@ -55,9 +57,11 @@ public class LightningAttack : Attack
             Player playerscript = collision.gameObject.GetComponent<Player>();
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
             collisionRb.AddForce(transform.forward * ObjectSpeed * 4); // knockback
-            playerscript.tempStun(1); // player kan niet bewegen
+            playerscript.tempStun(stunDuration); // player kan niet bewegen
 
-            //instantiate grote animatie
+            Instantiate(bounceEffect, transform.position, transform.rotation);
+            Instantiate(hitEffect, transform.position, transform.rotation);
+
             Destroy(gameObject);
 
         }
