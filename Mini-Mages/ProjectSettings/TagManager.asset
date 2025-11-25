@@ -25,10 +25,10 @@ TagManager:
   - Walls
   - Collisions
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player1Attack
+  - Player2Attack
+  - Player3Attack
+  - Player4Attack
   - 
   - 
   - 

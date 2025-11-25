@@ -18,6 +18,8 @@ public class LightningAttack : Attack
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //gameObject.layer = LayerMask.NameToLayer(parentTag + "Attack");
+        Debug.Log(gameObject.layer);
     }
 
     private void Update()
@@ -33,7 +35,6 @@ public class LightningAttack : Attack
         }
         
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))

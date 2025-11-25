@@ -10,6 +10,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private float currentDashCooldown;
     private PlayerInput PlayerInput;
     private Player PlayerScript;
+    public GameObject dashEffect;
     private void Start()
     {
         PlayerInput = GetComponent<PlayerInput>();
@@ -29,6 +30,7 @@ public class Dash : MonoBehaviour
     {
         if (context.performed && currentDashCooldown <= 0)
         {
+            Instantiate(dashEffect, transform.position, transform.rotation);
             PlayerScript.canMove = false;
             rb.AddForce(DashForce * transform.forward, ForceMode.VelocityChange);
             currentDashCooldown = dashCooldown;
