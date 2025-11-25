@@ -50,13 +50,13 @@ public class WindAttack : Attack
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2") || other.gameObject.CompareTag("Player3") || other.gameObject.CompareTag("Player4"))
         {
             // jij geeft de player +1 knockback
 
             Debug.Log("Hapetee lekker voor je, een knockback erbij");
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(gameObject.transform.forward * Hitback, ForceMode.Impulse);
+            Rigidbody collisionRb = other.gameObject.GetComponent<Rigidbody>();
+            collisionRb.AddForce(transform.forward * Hitback, ForceMode.Impulse);  // knockback
 
         }
     }

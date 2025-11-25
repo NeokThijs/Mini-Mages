@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private float fireDuration = 5f;
     private float fireTimer = 0f;
     public GameObject GnomeHat;
+    private float localStunDuration;
 
     void Start()
     {
@@ -50,6 +51,14 @@ public class Player : MonoBehaviour
                 fireTimer = 0f;
             }
             assOnFire();
+        }
+        if(localStunDuration > 0)
+        {
+            localStunDuration -= Time.deltaTime;
+            if(localStunDuration <= 0)
+            {
+                canMove = true;
+            }
         }
     }
 
@@ -91,8 +100,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void tempStun(float stunDuration)
+    {
+        canMove = false;
+        localStunDuration = stunDuration;
+    }
+
     public void RemoveFromPlayerList()
     {
-        GameManager.instance.playersInGame.Remove(gameObject);
+        //GameManager.instance.playersInGame.Remove(gameObject);
     }
 }
