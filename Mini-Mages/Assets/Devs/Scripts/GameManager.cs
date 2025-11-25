@@ -23,9 +23,15 @@ public class GameManager : MonoBehaviour
     public float removeStartUI = 0;
 
     [SerializeField] private GameObject Leaderboard;
+    [SerializeField] private TMPro.TextMeshProUGUI roundResultText;
     [SerializeField] private TMPro.TextMeshProUGUI leaderboardText;
+    public float showLeaderboard = 10;
 
-    
+    [Header("Player Registration")]
+    private string[] playerNames = {"Red", "Blue", "Yellow", "Green"};
+    public string winningPlayer;
+
+
     void Start()
     {
         if (instance == null)
@@ -34,6 +40,7 @@ public class GameManager : MonoBehaviour
         }
 
         StartUI.SetActive(true);
+        Leaderboard.SetActive(false);
         Time.timeScale = 0f; // stop the game  
     }
 
@@ -46,9 +53,9 @@ public class GameManager : MonoBehaviour
 
         if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
         {
+            winningPlayer = playersInGame[0].name;
+            ShowLeaderboard();
             Debug.Log("Nieuwe ronde start");
-            roundAmount++;
-            isRoundActive = false;
         }
 
         removeStartUI += Time.unscaledDeltaTime; // timer voor geen pauze dr in
@@ -107,6 +114,7 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
             Debug.Log("Spawn player");
+            player.gameObject.name = playerNames[i++];
         }
 
         
@@ -116,4 +124,28 @@ public class GameManager : MonoBehaviour
     {
         roundText.text = "Round: " + roundAmount;
     }
+
+    private void ShowLeaderboard()
+    {
+        Leaderboard.SetActive(true);
+        TextsUpdate();
+        Time.timeScale = 0f;
+        showLeaderboard -= Time.unscaledDeltaTime;
+
+        if (showLeaderboard <= 0)
+        {
+            Leaderboard.SetActive(false);
+            Time.timeScale = 1f;
+            roundAmount++;
+            isRoundActive = false;
+        }
+    }
+
+    private void TextsUpdate()
+    {
+        roundResultText.text = "Round " + roundAmount + " winner";
+        leaderboardText.text = winningPlayer;
+    }
+
+
 }
