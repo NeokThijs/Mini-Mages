@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [SerializeField] private GameObject player;
-    [SerializeField] private List<GameObject> playersInGame;
+    [SerializeField] public List<GameObject> playersInGame;
     [SerializeField] private List<Transform> SpawnpointsPlayers;
     [SerializeField] private float PlayerAmount = 4;
 
@@ -19,17 +21,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject StartUI;
     [SerializeField] private TMPro.TMP_InputField playerAmountIF; // IF = inputfield
     public float removeStartUI = 0;
+
+    [SerializeField] private GameObject Leaderboard;
+    [SerializeField] private TMPro.TextMeshProUGUI leaderboardText;
+
     
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         StartUI.SetActive(true);
         Time.timeScale = 0f; // stop the game  
     }
 
     void Update()
     {
-        if (isRoundActive && playersInGame.Count == 1) // MORGEN FF NAAR KIJKEN
+        if (playersInGame != null)
         {
+            playersInGame.RemoveAll(player => player == null);
+        }
+
+        if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
+        {
+            Debug.Log("Nieuwe ronde start");
+            roundAmount++;
             isRoundActive = false;
         }
 

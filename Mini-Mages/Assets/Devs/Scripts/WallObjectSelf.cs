@@ -21,7 +21,7 @@ public class WallObjectSelf : MonoBehaviour
         if (transform.position.y <= maxHeight)
         {
             transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, maxHeight, 0), Time.deltaTime * ObjectSpeed);
-            Debug.Log(" Muur omhoog");
+            //Debug.Log(" Muur omhoog");
         }
     }
 
@@ -30,7 +30,7 @@ public class WallObjectSelf : MonoBehaviour
         if (transform.position.y >= minHeight)
         {
             transform.position = Vector3.Lerp(transform.position, m_StartPos + new Vector3(0, minHeight, 0), Time.deltaTime * DownObjectSpeed);
-            Debug.Log("Muur omlaag");
+            //Debug.Log("Muur omlaag");
         }
     }
 

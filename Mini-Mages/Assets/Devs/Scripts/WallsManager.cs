@@ -109,7 +109,7 @@ public class WallsManager : MonoBehaviour
                     {
                         currentWall = null;
                         GotWall = false;
-                        Debug.Log("word null en false");
+                        //Debug.Log("word null en false");
                     }
                 }
                 break;
@@ -121,7 +121,7 @@ public class WallsManager : MonoBehaviour
                     {
                         currentWall = null;
                         GotWall = false;
-                        Debug.Log("word null en false");
+                        //Debug.Log("word null en false");
                     }
                 }
                 break;

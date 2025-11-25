@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("DeathWater"))
         {
+            RemoveFromPlayerList();
             Destroy(gameObject);
         }
     }
@@ -88,5 +89,10 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(10f * transform.forward, ForceMode.Acceleration);
         }
+    }
+
+    public void RemoveFromPlayerList()
+    {
+        GameManager.instance.playersInGame.Remove(gameObject);
     }
 }
