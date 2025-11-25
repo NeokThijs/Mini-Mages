@@ -13,6 +13,7 @@ public class PickupManager : MonoBehaviour
     public float Radius = 1;
 
     public float SpawnTimer;
+    public float requiredTime = 4f;
 
 
 
@@ -20,7 +21,7 @@ public class PickupManager : MonoBehaviour
     {
         SpawnTimer += Time.deltaTime;
 
-        if (SpawnTimer >= 5) 
+        if (SpawnTimer >= requiredTime) 
         { 
             SpawnRandomPickup();
             SpawnTimer = 0;
