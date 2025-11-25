@@ -141,6 +141,7 @@ MonoBehaviour:
   ObjectSpeed: 3
   WallsBounced: 0
   BounceLimit: 2
+  stunDuration: 1
 --- !u!135 &5791307639399047162
 SphereCollider:
   m_ObjectHideFlags: 0

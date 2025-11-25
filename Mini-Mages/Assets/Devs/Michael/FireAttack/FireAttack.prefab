@@ -139,7 +139,7 @@ MonoBehaviour:
   CountTillDT: 0
   DestroyTime: 6
   ObjectSpeed: 3
-  ExplosionEffect: {fileID: 2110337321995091781, guid: 4eb041447d3b746429f90b6d8e59f956, type: 3}
+  ExplosionEffect: {fileID: 4162038960178689073, guid: 6252ea0211a5dff408f90996149f324f, type: 3}
 --- !u!135 &7523227962481187003
 SphereCollider:
   m_ObjectHideFlags: 0
