@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("spelers voor de ronde: " + PlayerAmount);
     }
 
-    private void StartNewRound()
+    public void StartNewRound()
     {
         RemoveOldPlayers();
         SpawnPlayers();
