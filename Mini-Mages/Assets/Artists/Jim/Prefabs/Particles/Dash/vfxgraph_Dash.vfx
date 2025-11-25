@@ -100,46 +100,13 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615709}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615712}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615730}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615732}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615738}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661615745}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615760}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615763}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615775}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615785}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615790}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615794}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615797}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615803}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615809}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661615855}
@@ -319,8 +286,7 @@ MonoBehaviour:
   m_UIPosition: {x: 289, y: 354}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661614879}
+  m_InputSlots: []
   m_OutputSlots: []
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614702}
@@ -331,7 +297,7 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661614707}
       slotIndex: 0
-  loopDuration: 1
+  loopDuration: 0
   loopCount: 0
   delayBeforeLoop: 0
   delayAfterLoop: 0
@@ -716,40 +682,6 @@ MonoBehaviour:
   ageParticles: 1
   reapParticles: 1
   skipZeroDeltaUpdate: 0
---- !u!114 &8926484042661614879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614879}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614700}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
-    m_Space: -1
-  m_Property:
-    name: LoopDuration
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661614880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3167,8 +3099,7 @@ MonoBehaviour:
   m_UIPosition: {x: 1642, y: 347}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661615278}
+  m_InputSlots: []
   m_OutputSlots: []
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661615277}
@@ -3179,7 +3110,7 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661615283}
       slotIndex: 0
-  loopDuration: 1
+  loopDuration: 0
   loopCount: 0
   delayBeforeLoop: 0
   delayAfterLoop: 0
@@ -3204,40 +3135,6 @@ MonoBehaviour:
   title: 
   m_Owners:
   - {fileID: 8926484042661615276}
---- !u!114 &8926484042661615278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.VisualEffectGraph.Editor::UnityEditor.VFX.VFXSlotFloat
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615278}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661615276}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
-    m_Space: -1
-  m_Property:
-    name: LoopDuration
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661615279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7694,8 +7591,7 @@ MonoBehaviour:
   m_UIPosition: {x: 3287, y: 342}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661615555}
+  m_InputSlots: []
   m_OutputSlots: []
   m_Label: Main Circle
   m_Data: {fileID: 8926484042661615554}
@@ -7706,7 +7602,7 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661615560}
       slotIndex: 0
-  loopDuration: 1
+  loopDuration: 0
   loopCount: 0
   delayBeforeLoop: 0
   delayAfterLoop: 0
@@ -7731,40 +7627,6 @@ MonoBehaviour:
   title: 
   m_Owners:
   - {fileID: 8926484042661615553}
---- !u!114 &8926484042661615555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.VisualEffectGraph.Editor::UnityEditor.VFX.VFXSlotFloat
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615555}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661615553}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
-    m_Space: -1
-  m_Property:
-    name: LoopDuration
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661615556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11818,8 +11680,7 @@ MonoBehaviour:
   m_UIPosition: {x: 5102, y: 414}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661615711}
+  m_InputSlots: []
   m_OutputSlots: []
   m_Label: Smaller Circle
   m_Data: {fileID: 8926484042661615710}
@@ -11830,7 +11691,7 @@ MonoBehaviour:
   - link:
     - context: {fileID: 8926484042661615745}
       slotIndex: 0
-  loopDuration: 1
+  loopDuration: 0
   loopCount: 0
   delayBeforeLoop: 0
   delayAfterLoop: 0
@@ -11855,40 +11716,6 @@ MonoBehaviour:
   title: 
   m_Owners:
   - {fileID: 8926484042661615709}
---- !u!114 &8926484042661615711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.VisualEffectGraph.Editor::UnityEditor.VFX.VFXSlotFloat
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615711}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661615709}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
-    m_Space: -1
-  m_Property:
-    name: LoopDuration
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661615712
 MonoBehaviour:
   m_ObjectHideFlags: 0

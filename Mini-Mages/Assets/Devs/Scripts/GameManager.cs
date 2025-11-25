@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
         {
             winningPlayer = playersInGame[0].name;
             ShowLeaderboard();
-            Debug.Log("Nieuwe ronde start");
         }
 
         removeStartUI += Time.unscaledDeltaTime; // timer voor geen pauze dr in
@@ -112,9 +111,9 @@ public class GameManager : MonoBehaviour
     {
         for ( int i = 0; i < PlayerAmount; i++)
         {
-            Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
+            GameObject spawnedPlayer = Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
             Debug.Log("Spawn player");
-            player.gameObject.name = playerNames[i++];
+            spawnedPlayer.name = playerNames[i++];
         }
 
         
@@ -136,7 +135,8 @@ public class GameManager : MonoBehaviour
         {
             Leaderboard.SetActive(false);
             Time.timeScale = 1f;
-            roundAmount++;
+            roundAmount += 1;
+            Debug.Log("Nieuwe ronde start");
             isRoundActive = false;
         }
     }
