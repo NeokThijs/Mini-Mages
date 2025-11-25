@@ -5,6 +5,7 @@ public class FireAttack : Attack
     [Header ("Fire Attack")]
     public float ObjectSpeed;
     private Rigidbody rb;
+    public GameObject ExplosionEffect;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,7 +25,7 @@ public class FireAttack : Attack
 
     private void OnCollisionEnter(Collision collision)
     {
-        //instantiate explosie
+        Instantiate(ExplosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
