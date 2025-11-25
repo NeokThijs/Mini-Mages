@@ -216,7 +216,6 @@ MonoBehaviour:
   dashCooldown: 2
   DashDuration: 0.2
   currentDashCooldown: 0
-  dashEffect: {fileID: 5169269669022555694, guid: 6c8885e212d5a554f98d1c512cfbeaea, type: 3}
 --- !u!114 &8069803229593415027
 MonoBehaviour:
   m_ObjectHideFlags: 0
