@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float fireTimer = 0f;
     public GameObject GnomeHat;
     private float localStunDuration;
+    private Collider Collider;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class Player : MonoBehaviour
         dashBrain = GetComponent<Dash>();
         MeshRenderer = GnomeHat.GetComponent<MeshRenderer>();
         MeshRenderer.material = colors[playerInputObject.playerIndex];
+        Collider = GetComponent<Collider>();
+        Collider.excludeLayers = 1 << LayerMask.NameToLayer(gameObject.tag + "Attack");
+        rb.excludeLayers = 1 << LayerMask.NameToLayer(gameObject.tag + "Attack");
     }
 
     // Update is called once per frame
