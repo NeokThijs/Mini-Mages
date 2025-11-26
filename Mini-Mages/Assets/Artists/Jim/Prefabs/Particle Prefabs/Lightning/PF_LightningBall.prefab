@@ -376,7 +376,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4995,7 +4995,7 @@ GameObject:
   - component: {fileID: 7372172756455503540}
   - component: {fileID: 6588914006866162222}
   m_Layer: 0
-  m_Name: Fireball Light
+  m_Name: Lightning Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5027,7 +5027,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.3805202, g: 0.058761094, b: 0.4943396, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5195,7 +5195,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 1.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5346,7 +5346,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 1.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5700,7 +5700,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10333,7 +10333,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.22724, y: 4.22724, z: 4.22724}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6773642471267357725}
@@ -15387,4 +15387,4 @@ VFXRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
