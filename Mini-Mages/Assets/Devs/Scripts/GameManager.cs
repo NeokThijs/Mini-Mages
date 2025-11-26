@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Winner Registration")]
     public int[] PlayerWins = {0 , 0, 0 , 0}; // 0 = red t/m 3 = green
+    public bool WinnerInRound = false;
 
     void Start()
     {
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject spawnedPlayer = Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
             Debug.Log("Spawn player");
-            spawnedPlayer.name = playerNames[i++];
+            spawnedPlayer.name = playerNames[i +1]; // spawned 1 player extra dus moet ff gefixed worden
         }
 
         
@@ -156,6 +157,7 @@ public class GameManager : MonoBehaviour
     {
         Leaderboard.SetActive(true);
         TextsUpdate();
+        AddWinToPlayer();
         Time.timeScale = 0f;
         showLeaderboard -= Time.unscaledDeltaTime;
 
@@ -178,24 +180,29 @@ public class GameManager : MonoBehaviour
 
     private void AddWinToPlayer()
     {
+        WinnerInRound = true; // naar kijken door het optellen
         if (winningPlayer == playerNames[0]) // win naar rood
         {
             PlayerWins[0] += 1;
+            WinnerInRound = false;
             Debug.Log("Rood wint");
         }
         if (winningPlayer == playerNames[1]) // win naar blauw
         {
             PlayerWins[1] += 1;
+            WinnerInRound = false;
             Debug.Log("Blauw wint");
         }
         if (winningPlayer == playerNames[2]) // win naar geel
         {
             PlayerWins[2] += 1;
+            WinnerInRound = false;
             Debug.Log("Geel wint");
         }
         if (winningPlayer == playerNames[3]) // win naar groen
         {
             PlayerWins[3] += 1;
+            WinnerInRound = false;
             Debug.Log("Groen wint");
         }
     }
