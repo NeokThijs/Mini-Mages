@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         dashBrain = GetComponent<Dash>();
+        if (GnomeHat != null)
+        { 
         MeshRenderer = GnomeHat.GetComponent<MeshRenderer>();
         MeshRenderer.material = colors[playerInputObject.playerIndex];
+        }
         Collider = GetComponent<Collider>();
         Collider.excludeLayers = 1 << LayerMask.NameToLayer(gameObject.tag + "Attack");
         rb.excludeLayers = 1 << LayerMask.NameToLayer(gameObject.tag + "Attack");
