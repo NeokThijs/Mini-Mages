@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5039,7 +5039,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.136116, y: 3.136116, z: 3.136116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3549078731960555591}
@@ -5165,7 +5165,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.136116, y: 3.136116, z: 3.136116}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4319787118558903610}
@@ -5223,7 +5223,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 1.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5316,7 +5316,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.136116, y: 3.136116, z: 3.136116}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3795871712822896534}
@@ -5353,7 +5353,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22822623, y: 0.22822623, z: 0.22822623}
+  m_LocalScale: {x: 0.7157439, y: 0.7157439, z: 0.7157439}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3549078731960555591}
@@ -10595,7 +10595,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15286,7 +15286,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 1.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -15380,7 +15380,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3394, y: 1.3394, z: 1.3394}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167830484138000783}
