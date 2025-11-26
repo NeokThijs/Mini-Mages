@@ -106,6 +106,7 @@ MonoBehaviour:
   lessSpeedPSec: 25
   ObjectSpeed: 0
   Hitback: 5
+  parent: {fileID: 1651467302455331050}
 --- !u!1 &1651467302455331050
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +166,7 @@ MonoBehaviour:
   lessSpeedPSec: 100
   ObjectSpeed: 0
   Hitback: 0
+  parent: {fileID: 0}
 --- !u!1 &3645963847658663052
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +273,7 @@ MonoBehaviour:
   lessSpeedPSec: 25
   ObjectSpeed: 0
   Hitback: 5
+  parent: {fileID: 1651467302455331050}
 --- !u!1 &8177677482599724554
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +380,7 @@ MonoBehaviour:
   lessSpeedPSec: 25
   ObjectSpeed: 0
   Hitback: 5
+  parent: {fileID: 1651467302455331050}
 --- !u!1001 &386228368259774318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -656,3 +660,4 @@ MonoBehaviour:
   lessSpeedPSec: 100
   ObjectSpeed: 0
   Hitback: 0
+  parent: {fileID: 0}
