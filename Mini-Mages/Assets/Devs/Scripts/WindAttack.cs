@@ -22,6 +22,8 @@ public class WindAttack : Attack
         if(rb != null)
         {
             rb.AddForce(transform.forward * ObjectSpeed); // lerpen
+            Debug.Log(transform.parent.tag);
+            //gameObject.layer = LayerMask.NameToLayer();
         }
     }
 
