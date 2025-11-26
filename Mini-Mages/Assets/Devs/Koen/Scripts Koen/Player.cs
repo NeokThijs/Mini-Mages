@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject GnomeHat;
     private float localStunDuration;
     private Collider Collider;
+    public Animator playerAnimator;
 
     void Start()
     {
