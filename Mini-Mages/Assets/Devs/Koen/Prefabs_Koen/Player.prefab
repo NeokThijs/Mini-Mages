@@ -216,6 +216,7 @@ MonoBehaviour:
   dashCooldown: 2
   DashDuration: 0.2
   currentDashCooldown: 0
+  dashEffect: {fileID: 5169269669022555694, guid: 6c8885e212d5a554f98d1c512cfbeaea, type: 3}
 --- !u!114 &8069803229593415027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,7 @@ MonoBehaviour:
   Wack: {fileID: 8770470255793179720, guid: 8945c4e5bcc0add4d993197fd3fdde5e, type: 3}
   SpecialAttack: {fileID: 0}
   PlaceAttack: {fileID: 6077616093076398274}
+  attackCooldown: 1.25
   AttackAmount: 0
 --- !u!1 &4783753795546886844
 GameObject:

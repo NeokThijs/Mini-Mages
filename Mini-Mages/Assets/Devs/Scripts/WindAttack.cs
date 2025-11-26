@@ -11,8 +11,10 @@ public class WindAttack : Attack
     public float lessSpeedPSec = 100f;
     public float ObjectSpeed;
     public float Hitback;
-
-
+    
+    
+    public GameObject parent;
+    private int parentLayer;
     private Rigidbody rb;
 
     private void Start()
@@ -22,8 +24,11 @@ public class WindAttack : Attack
         if(rb != null)
         {
             rb.AddForce(transform.forward * ObjectSpeed); // lerpen
-            Debug.Log(transform.parent.tag);
-            //gameObject.layer = LayerMask.NameToLayer();
+            if(parent != null)
+            {
+                parentLayer = parent.layer;
+                gameObject.layer = LayerMask.NameToLayer(LayerMask.LayerToName(parentLayer));
+            }
         }
     }
 
@@ -42,11 +47,6 @@ public class WindAttack : Attack
         {
             UseAttack();
         }
-
-        //if (ObjectSpeed >= MaxObjSpeed)
-        //{
-        //    ObjectSpeed -= lessSpeedPSec * Time.deltaTime;
-        //}
         ObjectSpeed -= lessSpeedPSec ;
 
     }
