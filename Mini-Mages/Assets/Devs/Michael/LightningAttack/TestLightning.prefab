@@ -225,7 +225,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_LightningBall
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8100071425762954063, guid: c8cf80f8c018f184fa8cc4d43f2f7f2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8100071425762954063, guid: c8cf80f8c018f184fa8cc4d43f2f7f2d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
