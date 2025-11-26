@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d53a8ee2b76275439fa113c5193195e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  AttackObject: {fileID: 3480479375854502755, guid: a7a9b6a75e23a724e820578eb2337519, type: 3}
+  AttackObject: {fileID: 3480479375854502755, guid: 6fbd14bd7565ad749a0252e10e61d1df, type: 3}
+  CountTillDT: 0
+  DestroyTime: 15
 --- !u!54 &6039848928258906420
 Rigidbody:
   m_ObjectHideFlags: 0

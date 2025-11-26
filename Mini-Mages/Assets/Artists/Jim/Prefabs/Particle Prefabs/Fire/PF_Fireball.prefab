@@ -5336,7 +5336,6 @@ GameObject:
   - component: {fileID: 6381909229272987705}
   - component: {fileID: 6792108153905390229}
   - component: {fileID: 7896184081745643437}
-  - component: {fileID: 7266401455205774234}
   m_Layer: 0
   m_Name: FireballOutline
   m_TagString: Untagged
@@ -5415,27 +5414,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7266401455205774234
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394801225812869710}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3626126867215237328
 GameObject:
   m_ObjectHideFlags: 0
