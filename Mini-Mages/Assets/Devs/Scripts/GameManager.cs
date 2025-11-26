@@ -3,6 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,11 +29,11 @@ public class GameManager : MonoBehaviour
     public float showLeaderboard = 10;
 
     [Header("Player Registration")]
-    private string[] playerNames = {"Red", "Blue", "Yellow", "Green" };
+    private string[] playerNames = { "Red", "Blue", "Yellow", "Green" };
     public string winningPlayer;
 
     [Header("Winner Registration")]
-    public int[] PlayerWins = {0 , 0, 0 , 0}; // 0 = red t/m 3 = green
+    public int[] PlayerWins; // element 0 = red t/m 3 = green
     public bool WinnerInRound = false;
 
     void Start()
@@ -70,8 +71,8 @@ public class GameManager : MonoBehaviour
 
             if (isRoundActive == false)
             {
-                isRoundActive = true;   
-                StartNewRound();         
+                isRoundActive = true;
+                StartNewRound();
             }
         }
     }
@@ -82,7 +83,8 @@ public class GameManager : MonoBehaviour
         if (UIPlayerAmount <= 1)
         {
             UIPlayerAmount = 2;
-        } else 
+        }
+        else
         if (UIPlayerAmount > 4)
         {
             UIPlayerAmount = 4;
@@ -128,20 +130,18 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayers()
     {
         isRoundActive = true;
-        for ( int i = 0; i <= PlayerAmount; i++)
+        for (int i = 0; i < PlayerAmount; i++)
         {
             GameObject spawnedPlayer = Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
             Debug.Log("Spawn player");
-            spawnedPlayer.name = playerNames[i +1]; // spawned 1 player extra dus moet ff gefixed worden
+            spawnedPlayer.name = playerNames[i]; // spawned 1 player extra dus moet ff gefixed worden
         }
-
-        
     }
 
     private void RemoveAllPickups()
     {
         GameObject[] pickup2Remove = GameObject.FindGameObjectsWithTag("Pickup");
-        for( int i = 0; i < pickup2Remove.Length; i++)
+        for (int i = 0; i < pickup2Remove.Length; i++)
         {
             Destroy(pickup2Remove[i]);
             Debug.Log("verwijder de pickups bro");
@@ -157,7 +157,10 @@ public class GameManager : MonoBehaviour
     {
         Leaderboard.SetActive(true);
         TextsUpdate();
-        AddWinToPlayer();
+        if (!WinnerInRound)
+        {
+            AddWinToPlayer();
+        }
         Time.timeScale = 0f;
         showLeaderboard -= Time.unscaledDeltaTime;
 
@@ -169,6 +172,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Nieuwe ronde start");
             RoundsUI();
             isRoundActive = false;
+            WinnerInRound = false;
         }
     }
 
@@ -180,31 +184,34 @@ public class GameManager : MonoBehaviour
 
     private void AddWinToPlayer()
     {
-        WinnerInRound = true; // naar kijken door het optellen
+        WinnerInRound = true;
         if (winningPlayer == playerNames[0]) // win naar rood
         {
             PlayerWins[0] += 1;
-            WinnerInRound = false;
             Debug.Log("Rood wint");
         }
         if (winningPlayer == playerNames[1]) // win naar blauw
         {
             PlayerWins[1] += 1;
-            WinnerInRound = false;
             Debug.Log("Blauw wint");
         }
         if (winningPlayer == playerNames[2]) // win naar geel
         {
             PlayerWins[2] += 1;
-            WinnerInRound = false;
             Debug.Log("Geel wint");
         }
         if (winningPlayer == playerNames[3]) // win naar groen
         {
             PlayerWins[3] += 1;
-            WinnerInRound = false;
             Debug.Log("Groen wint");
         }
+        //for (int i = 0; i < PlayerWins.Length;)
+        //{
+        //    if (PlayerWins[i] == 3)
+        //    {
+        //        SceneManager.LoadScene("EndScreen");
+        //    }
+        //}
     }
 
 }

@@ -1905,10 +1905,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1190308223}
     - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
-      propertyPath: PlayerWins.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
       propertyPath: 'SpawnpointsPlayers.Array.data[0]'
       value: 
       objectReference: {fileID: 1171271369}

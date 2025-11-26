@@ -62,3 +62,5 @@ MonoBehaviour:
   leaderboardText: {fileID: 0}
   showLeaderboard: 10
   winningPlayer: 
+  PlayerWins: 00000000000000000000000000000000
+  WinnerInRound: 0
