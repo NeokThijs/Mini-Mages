@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
         {
             winningPlayer = playersInGame[0].name;
             RemoveAllPickups();
+            if (PlayerWins[0] == 3)
+            {
+                SceneManager.LoadScene("EndScreen");
+            }
             ShowLeaderboard();
         }
 
@@ -96,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRound()
     {
-        isRoundActive = false;
+        isRoundActive = true;
         RemoveOldPlayers();
         Leaderboard.SetActive(false);
         Time.timeScale = 1f;
@@ -168,7 +172,6 @@ public class GameManager : MonoBehaviour
         {
             Leaderboard.SetActive(false);
             Time.timeScale = 1f;
-            roundAmount += 1;
             Debug.Log("Nieuwe ronde start");
             RoundsUI();
             isRoundActive = false;
@@ -205,13 +208,6 @@ public class GameManager : MonoBehaviour
             PlayerWins[3] += 1;
             Debug.Log("Groen wint");
         }
-        //for (int i = 0; i < PlayerWins.Length;)
-        //{
-        //    if (PlayerWins[i] == 3)
-        //    {
-        //        SceneManager.LoadScene("EndScreen");
-        //    }
-        //}
     }
 
 }
