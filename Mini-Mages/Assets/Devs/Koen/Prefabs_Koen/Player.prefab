@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4dbf93ce05c198444a5dde2ea7316db9, type: 2}
   - {fileID: 2100000, guid: 395b20c2636e0da48ad1a32f71c17116, type: 2}
   hitByFire: 0
-  GnomeHat: {fileID: 4549831930517166928}
+  GnomeHat: {fileID: 0}
 --- !u!114 &7069075633451147498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,11 +404,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
---- !u!1 &4549831930517166928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4349611933861984126, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
-  m_PrefabInstance: {fileID: 8973231995541771218}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8867002212116771897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
