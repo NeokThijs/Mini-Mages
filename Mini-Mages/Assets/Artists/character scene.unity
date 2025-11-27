@@ -387,9 +387,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -150009337949190703, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 97c169720b5036b4c836403be28e5f63, type: 2}
+    - target: {fileID: -150009337949190703, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 9b76098b38bda834194da7504337df1f, type: 2}
+    - target: {fileID: 542598567718916079, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 97c169720b5036b4c836403be28e5f63, type: 2}
     - target: {fileID: 919132149155446097, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
       propertyPath: m_Name
       value: gnome
