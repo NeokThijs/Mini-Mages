@@ -234,7 +234,7 @@ MonoBehaviour:
   Wack: {fileID: 8770470255793179720, guid: 8945c4e5bcc0add4d993197fd3fdde5e, type: 3}
   SpecialAttack: {fileID: 0}
   PlaceAttack: {fileID: 6077616093076398274}
-  attackCooldown: 1.25
+  attackCooldown: 0.75
   AttackAmount: 0
 --- !u!1 &4783753795546886844
 GameObject:

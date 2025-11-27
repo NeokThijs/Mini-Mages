@@ -40,15 +40,6 @@ public class WindAttack : Attack
         {
             Destroy(gameObject);
         }
-
-        YPos = transform.position.y;
-
-        if (Keyboard.current != null && Keyboard.current.backspaceKey.wasPressedThisFrame)
-        {
-            UseAttack();
-        }
-        ObjectSpeed -= lessSpeedPSec ;
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -57,6 +48,17 @@ public class WindAttack : Attack
             // jij geeft de player +1 knockback
             Rigidbody collisionRb = other.gameObject.GetComponent<Rigidbody>();
             collisionRb.AddForce(transform.forward * Hitback, ForceMode.Impulse);  // knockback
+
+        }
+        else if(other.gameObject.CompareTag("FireAttack") )
+        {
+            FireAttack fireAttack = other.gameObject.GetComponent<FireAttack>();
+            fireAttack.Death();
+        }
+        else if (other.gameObject.CompareTag("LightningAttack"))
+        {
+            LightningAttack lightningAttack = other.gameObject.GetComponent<LightningAttack>();
+            lightningAttack.Death();
 
         }
     }

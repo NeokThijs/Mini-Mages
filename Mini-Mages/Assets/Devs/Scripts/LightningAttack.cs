@@ -18,8 +18,8 @@ public class LightningAttack : Attack
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //gameObject.layer = LayerMask.NameToLayer(parentTag + "Attack");
         Debug.Log(gameObject.layer);
+        rb.AddForce(10f * transform.forward, ForceMode.Impulse); // initial force
     }
 
     private void Update()
@@ -48,24 +48,26 @@ public class LightningAttack : Attack
 
             WallsBounced++;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //else
+        //{
+        //    Death();
+        //}
         //als ie de player raakt, dan gaat ie kapot
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player3") || collision.gameObject.CompareTag("Player4"))
         {
             Player playerscript = collision.gameObject.GetComponent<Player>();
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-            collisionRb.AddForce(transform.forward * ObjectSpeed * 4); // knockback
+            collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4); // knockback
             playerscript.tempStun(stunDuration); // player kan niet bewegen
-
-            Instantiate(bounceEffect, transform.position, transform.rotation);
-            Instantiate(hitEffect, transform.position, transform.rotation);
-
-            Destroy(gameObject);
-
-        }
-
+            Death();
+        } 
     }
+        public void Death()
+    {
+        Instantiate(bounceEffect, transform.position, transform.rotation);
+        Instantiate(hitEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
 }
+

@@ -138,7 +138,7 @@ MonoBehaviour:
   YPos: 0
   CountTillDT: 0
   DestroyTime: 6
-  ObjectSpeed: 3
+  ObjectSpeed: 5
   ExplosionEffect: {fileID: 3916473052154344387, guid: 5ff98ae989c4dfa4087190f942007188, type: 3}
 --- !u!135 &7523227962481187003
 SphereCollider:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7924186131575375294}
   m_Layer: 6
   m_Name: TUWMiddlePart
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ Rigidbody:
   m_GameObject: {fileID: 893776742097134116}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -100,12 +100,12 @@ MonoBehaviour:
   HitRange: 0
   YPos: 0
   CountTillDT: 0
-  DestroyTime: 7
+  DestroyTime: 1
   MaxObjSpeed: 175
-  AttackSpeed: 150
-  lessSpeedPSec: 25
+  AttackSpeed: 2000
+  lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 5
+  Hitback: 10
   parent: {fileID: 1651467302455331050}
 --- !u!1 &1651467302455331050
 GameObject:
@@ -156,13 +156,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindAttack
   AttackAnimation: {fileID: 0}
-  KnockbackAmount: 1
+  KnockbackAmount: 5
   HitRange: 0
   YPos: 0
   CountTillDT: 0
-  DestroyTime: 6
-  MaxObjSpeed: 1000
-  AttackSpeed: 900
+  DestroyTime: 2
+  MaxObjSpeed: 2000
+  AttackSpeed: 1800
   lessSpeedPSec: 100
   ObjectSpeed: 0
   Hitback: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 6318339030010566057}
   m_Layer: 6
   m_Name: TUWRightPart
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ Rigidbody:
   m_GameObject: {fileID: 3645963847658663052}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -267,12 +267,12 @@ MonoBehaviour:
   HitRange: 0
   YPos: 0
   CountTillDT: 0
-  DestroyTime: 7
+  DestroyTime: 1
   MaxObjSpeed: 175
-  AttackSpeed: 150
-  lessSpeedPSec: 25
+  AttackSpeed: 2000
+  lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 5
+  Hitback: 10
   parent: {fileID: 1651467302455331050}
 --- !u!1 &8177677482599724554
 GameObject:
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 1920003203634927568}
   m_Layer: 6
   m_Name: TUWLeftPart
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,7 +339,7 @@ Rigidbody:
   m_GameObject: {fileID: 8177677482599724554}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -374,12 +374,12 @@ MonoBehaviour:
   HitRange: 0
   YPos: 0
   CountTillDT: 0
-  DestroyTime: 7
+  DestroyTime: 1
   MaxObjSpeed: 175
-  AttackSpeed: 150
-  lessSpeedPSec: 25
+  AttackSpeed: 2000
+  lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 5
+  Hitback: 10
   parent: {fileID: 1651467302455331050}
 --- !u!1001 &386228368259774318
 PrefabInstance:

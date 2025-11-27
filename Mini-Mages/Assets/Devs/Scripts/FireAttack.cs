@@ -9,6 +9,8 @@ public class FireAttack : Attack
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.AddForce(10f * transform.forward, ForceMode.Impulse); // initial force
+
     }
 
     private void Update()
@@ -25,8 +27,12 @@ public class FireAttack : Attack
 
     private void OnCollisionEnter(Collision collision)
     {
+        Death();
+    }
+
+    public void Death()
+    {
         Instantiate(ExplosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
-
 }
