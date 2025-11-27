@@ -14,6 +14,7 @@ TagManager:
   - WindAttack
   - Pickup
   - DeathWater
+  - MiniWall
   layers:
   - Default
   - TransparentFX

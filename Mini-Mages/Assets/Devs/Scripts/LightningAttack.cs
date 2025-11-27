@@ -37,7 +37,7 @@ public class LightningAttack : Attack
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("MiniWall"))
         {
             rb.linearVelocity = Vector3.zero;
             var speed = lastVelocity.magnitude;
@@ -48,10 +48,7 @@ public class LightningAttack : Attack
 
             WallsBounced++;
         }
-        //else
-        //{
-        //    Death();
-        //}
+
         //als ie de player raakt, dan gaat ie kapot
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player3") || collision.gameObject.CompareTag("Player4"))
         {
