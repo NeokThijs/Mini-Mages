@@ -199,9 +199,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 97c169720b5036b4c836403be28e5f63, type: 2}
   - {fileID: 2100000, guid: d08a31ae9317ac042aee7e910dc434c0, type: 2}
   hitByFire: 0
-  GnomeColor: {fileID: 305133593990513836}
+  GnomeColor: {fileID: 8120986612460471770}
   StaffColor: {fileID: 5651099699997044526}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 1864820358171973840}
 --- !u!114 &7069075633451147498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,11 +425,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1864820358171973840}
   m_SourcePrefab: {fileID: 100100000, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
---- !u!1 &305133593990513836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8699652204047898494, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
-  m_PrefabInstance: {fileID: 8973231995541771218}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5651099699997044526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5554082065948066564, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
@@ -462,6 +457,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8120986612460471770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 879566117264627208, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+  m_PrefabInstance: {fileID: 8973231995541771218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8867002212116771897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}

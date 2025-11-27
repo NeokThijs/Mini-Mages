@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    private Vector3 Movement;
+    public Vector3 Movement;
     [SerializeField] private PlayerInput playerInputObject;
     public float moveSpeed = 10f;
     public float lookSpeed = 10f;
