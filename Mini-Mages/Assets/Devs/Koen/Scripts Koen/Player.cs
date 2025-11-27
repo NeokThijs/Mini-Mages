@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         }
         // Move in world space so changing the GameObject's rotation does NOT change the movement direction.
         transform.Translate(worldMove * Time.deltaTime * moveSpeed, Space.World);
+        //rb.AddForce(worldMove * moveSpeed, ForceMode.Acceleration);
         if (hitByFire)
         {
             fireTimer += Time.deltaTime;
