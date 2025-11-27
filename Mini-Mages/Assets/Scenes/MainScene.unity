@@ -2053,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallsUpDownManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7709833040238695179, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

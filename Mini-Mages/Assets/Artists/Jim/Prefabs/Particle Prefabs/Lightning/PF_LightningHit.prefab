@@ -55,6 +55,12 @@ VisualEffect:
       - m_Value: 2
         m_Name: LightningSize
         m_Overridden: 1
+      - m_Value: 5
+        m_Name: LightningGroundSize
+        m_Overridden: 1
+      - m_Value: 6
+        m_Name: SmallBlocksSize
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -133,3 +139,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d8bd7165387324891f6e2c2d9c4892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CleanupAfterCompletion
+  lifetime: 2
