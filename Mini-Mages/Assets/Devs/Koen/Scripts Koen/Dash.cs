@@ -11,8 +11,10 @@ public class Dash : MonoBehaviour
     private PlayerInput PlayerInput;
     private Player PlayerScript;
     public GameObject dashEffect;
+    private Animator animator;
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         PlayerInput = GetComponent<PlayerInput>();
         PlayerScript = GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
@@ -30,6 +32,7 @@ public class Dash : MonoBehaviour
     {
         if (context.performed && currentDashCooldown <= 0)
         {
+            animator.SetTrigger("Dash");
             Debug.Log("Dash executed");
             Instantiate(dashEffect, gameObject.transform.position, gameObject.transform.rotation);
             PlayerScript.canMove = false;

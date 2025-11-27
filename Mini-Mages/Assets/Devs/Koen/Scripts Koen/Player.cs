@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private float localStunDuration;
     private Collider Collider;
     public Animator playerAnimator;
+    public bool Grounded;
 
     void Start()
     {
@@ -75,6 +76,17 @@ public class Player : MonoBehaviour
                 canMove = true;
             }
         }
+
+
+        playerAnimator.SetFloat("Speed", Movement.magnitude);
+        if (Grounded == false)
+        {
+            playerAnimator.SetBool("InAir", true);
+        }
+        else if (Grounded == true)
+        {
+            playerAnimator.SetBool("InAir", false);
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -83,6 +95,11 @@ public class Player : MonoBehaviour
         {
             Movement.x = context.ReadValue<Vector2>().x;
             Movement.z = context.ReadValue<Vector2>().y;
+        }
+        else if (canMove == false)
+        {
+            Movement.x = 0f;
+            Movement.z = 0f;
         }
     }
 
@@ -111,6 +128,7 @@ public class Player : MonoBehaviour
     {
         if (hitByFire == true)
         {
+            playerAnimator.SetTrigger("AssOnFire");
             rb.AddForce(10f * transform.forward, ForceMode.Acceleration);
         }
     }
@@ -124,5 +142,13 @@ public class Player : MonoBehaviour
     public void RemoveFromPlayerList()
     {
         //GameManager.instance.playersInGame.Remove(gameObject);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        Grounded = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Grounded = false;
     }
 }

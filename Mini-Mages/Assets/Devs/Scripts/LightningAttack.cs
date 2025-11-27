@@ -7,7 +7,7 @@ public class LightningAttack : Attack
     public float ObjectSpeed;
 
     public float WallsBounced;
-    public float BounceLimit = 2;
+    public float BounceLimit;
     private Rigidbody rb;
     public float stunDuration = 0.5f;
     public GameObject bounceEffect;
@@ -33,12 +33,18 @@ public class LightningAttack : Attack
         {
             Destroy(gameObject);
         }
-        
+        if (WallsBounced >= BounceLimit)
+        {
+            Instantiate(bounceEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("MiniWall"))
         {
+            Instantiate(bounceEffect, transform.position, Quaternion.identity);
             rb.linearVelocity = Vector3.zero;
             var speed = lastVelocity.magnitude;
             var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);

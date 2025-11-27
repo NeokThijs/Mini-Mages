@@ -5,13 +5,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Wack;
+    private Whack WhackScript;
+    [SerializeField] private GameObject Whacker;
     [SerializeField] public GameObject SpecialAttack;
     [SerializeField] private Transform PlaceAttack;
     [SerializeField] private float attackCooldown;
     private float currentAttackCooldown;
-    
+    private float whackTiming = 1.28f;
+    private float currentWhackTiming;
+    private Animator animator;
+
     public float AttackAmount;
+
+    private void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+        WhackScript = Whacker.GetComponent<Whack>();
+    }
 
     private void Update()
     {
@@ -20,6 +30,7 @@ public class PlayerAttackManager : MonoBehaviour
         {
             currentAttackCooldown -= Time.deltaTime;
         }
+        currentWhackTiming -= Time.deltaTime;
     }
     private void CheckAttack() // kijkt of er een special attack is, en of die nog niet op is
     {
@@ -45,6 +56,7 @@ public class PlayerAttackManager : MonoBehaviour
             startCooldown();
             if (SpecialAttack != null && AttackAmount > 0)
             {
+                animator.SetTrigger("Cast");
                 GameObject Attack = Instantiate(SpecialAttack, PlaceAttack.position, PlaceAttack.rotation);
                     Attack.layer = LayerMask.NameToLayer(gameObject.tag + "Attack"); //zet de layer van de attack naar de player tag + attack
                     Attack.transform.parent = null; //remove the parent of the attack
@@ -52,9 +64,12 @@ public class PlayerAttackManager : MonoBehaviour
                 AttackAmount --; //attack charges -1
                 Debug.Log(AttackAmount + "charges left");
             }
-            else if (SpecialAttack == null)
+            else if (SpecialAttack == null && currentWhackTiming <= 0)
             {
-                Instantiate(Wack, PlaceAttack.position, PlaceAttack.rotation);
+                currentWhackTiming = whackTiming;
+                animator.SetTrigger("Whack");
+                WhackScript.StartWhacking();
+                //Instantiate(Wack, PlaceAttack.position, PlaceAttack.rotation);
             }
         }
     }

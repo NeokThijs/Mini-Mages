@@ -15,15 +15,13 @@ public class WallsManager : MonoBehaviour
     [SerializeField] private WallObjectSelf currentWall;
     private bool GotWall = false;
     public float MaxWall = 3;
-    private bool MaxWallReached = false;
-    private float wallsCurrentlyUp;
-    private bool NoWallsUp = false;
-    private float WallTimer;
+    public float WallTimer;
+    public float TimerInterval;
 
     void Update()
     { 
         WallTimer += Time.deltaTime;
-        if (WallTimer >= 2f && state != WallHeight.Down)
+        if (WallTimer >= TimerInterval && state != WallHeight.Down)
         {
             GotWall = false;
             currentWall = null;
@@ -38,8 +36,9 @@ public class WallsManager : MonoBehaviour
                 return Mathf.Abs(ws.transform.position.y - ws.minHeight) <= marge;
             });
 
-            if (allAtMin || NoWallsUp)
+            if (allAtMin)
             {
+                Debug.Log("All walls at min height, switching to Normal state.");
                 state = WallHeight.Normal;
                 GotWall = false;
                 currentWall = null;
@@ -53,15 +52,16 @@ public class WallsManager : MonoBehaviour
                 return Mathf.Abs(ws.transform.position.y - ws.maxHeight) <= marge;
             });
 
-            if (allAtMax || MaxWallReached)
+            if (allAtMax)
             {
+                Debug.Log("All walls at max height, switching to Down state.");
                 GotWall = false;
                 currentWall = null;
                 state = WallHeight.Down;
             }
         }
 
-        if (!GotWall && MaxWallReached == false)
+        if (!GotWall)
         {
             SelectRandomWall();
         }
@@ -72,9 +72,9 @@ public class WallsManager : MonoBehaviour
                 if (currentWall != null)
                 {
                     currentWall.MoveUp();
-                    wallsCurrentlyUp++;
                     if (currentWall.transform.position.y >= currentWall.maxHeight + marge)
                     {
+                        Debug.Log("Wall reached max height.");
                         currentWall = null;
                         GotWall = false;
                     }
@@ -84,9 +84,9 @@ public class WallsManager : MonoBehaviour
                 if (currentWall != null)
                 {
                     currentWall.MoveDown();
-                    wallsCurrentlyUp--;
                     if (currentWall.transform.position.y <= currentWall.minHeight + marge)
                     {
+                        Debug.Log("Wall reached min height.");
                         currentWall = null;
                         GotWall = false;
                         //Debug.Log("word null en false");
@@ -99,6 +99,7 @@ public class WallsManager : MonoBehaviour
                     currentWall.Neutral();
                     if (currentWall.IsResetToNeutral())
                     {
+                        Debug.Log("Wall reset to neutral.");
                         currentWall = null;
                         GotWall = false;
                         //Debug.Log("word null en false");
@@ -113,7 +114,6 @@ public class WallsManager : MonoBehaviour
         if (GotWall == false)
         {
             currentWall = walls[Random.Range(0, walls.Count)].GetComponent<WallObjectSelf>();
-            GotWall = true;
         }
     }
 }
