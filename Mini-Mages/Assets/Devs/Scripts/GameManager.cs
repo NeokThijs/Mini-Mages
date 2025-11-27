@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public List<GameObject> playersInGame;
     [SerializeField] private List<Transform> SpawnpointsPlayers;
     [SerializeField] private float PlayerAmount = 4;
+
+    [SerializeField] private CinemachineTargetGroup targetGroup;
 
     [Header("UI (Settings)")]
     [SerializeField] private TMPro.TextMeshProUGUI roundText;
@@ -119,6 +122,10 @@ public class GameManager : MonoBehaviour
         {
             playersInGame.Add(players[i]);
         }
+        foreach (GameObject Player in players) // camera zooi
+        {
+            targetGroup.AddMember(Player.transform, 1, 0.5f);
+        }
         Debug.Log("Voegt player toe a/d list");
     }
 
@@ -134,11 +141,26 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayers()
     {
         isRoundActive = true;
+        
+        List<Transform> avalibleSpawns = new List<Transform>(SpawnpointsPlayers); // nieuwe list
+
         for (int i = 0; i < PlayerAmount; i++)
         {
-            GameObject spawnedPlayer = Instantiate(player, SpawnpointsPlayers[Random.Range(0, SpawnpointsPlayers.Count)].transform.position, Quaternion.identity);
+
+            if (avalibleSpawns.Count == 0)
+            {
+                Debug.LogWarning("Niet genoeg spawnpoints voor alle spelers!");
+                break;
+            }
+
+            int index = Random.Range(0, avalibleSpawns.Count); // checkt ofdat er plek is
+            Transform spawnPoint = avalibleSpawns[index];
+
+            GameObject spawnedPlayer = Instantiate(player, spawnPoint.position, Quaternion.identity);
             Debug.Log("Spawn player");
             spawnedPlayer.name = playerNames[i]; // spawned 1 player extra dus moet ff gefixed worden
+
+            avalibleSpawns.RemoveAt(index);
         }
     }
 
