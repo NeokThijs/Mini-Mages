@@ -30,7 +30,7 @@ public class Dash : MonoBehaviour
     {
         if (context.performed && currentDashCooldown <= 0)
         {
-            //Instantiate(dashEffect, transform.position, transform.rotation);
+            Instantiate(dashEffect, gameObject.transform.position, gameObject.transform.rotation);
             PlayerScript.canMove = false;
             rb.AddForce(DashForce * transform.forward, ForceMode.VelocityChange);
             currentDashCooldown = dashCooldown;

@@ -362,18 +362,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Name
       value: LightningSize
       objectReference: {fileID: 0}
     - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: LightningGroundSize
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Name
+      value: SmallBlocksSize
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737019026624440035, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Overridden
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7203855146747254739, guid: 1defc250aaaac5340b194e289dc41809, type: 3}
@@ -1041,11 +1065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3549078731960555591, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.42
+      value: 2.763
       objectReference: {fileID: 0}
     - target: {fileID: 3549078731960555591, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.48
+      value: 4.459
       objectReference: {fileID: 0}
     - target: {fileID: 3549078731960555591, guid: dab8f26f15671534f81f167d087e945f, type: 3}
       propertyPath: m_LocalRotation.w
