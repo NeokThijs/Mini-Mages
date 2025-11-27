@@ -14,37 +14,15 @@ public class WallsManager : MonoBehaviour
     [SerializeField] private List<GameObject> walls;
     [SerializeField] private WallObjectSelf currentWall;
     private bool GotWall = false;
-
+    public float MaxWall = 3;
+    private bool MaxWallReached = false;
+    private float wallsCurrentlyUp;
+    private bool NoWallsUp = false;
     private float WallTimer;
 
     void Update()
-    {
-        // toetsen om te testen
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-        {
-            GotWall = false;
-            currentWall = null;
-            state = WallHeight.Up;
-        }
-
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            GotWall = false;
-            currentWall = null;
-
-            state = WallHeight.Down;
-        }
-
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            GotWall = false;
-            currentWall = null;
-
-            state = WallHeight.Normal;
-        }
-
+    { 
         WallTimer += Time.deltaTime;
-
         if (WallTimer >= 2f && state != WallHeight.Down)
         {
             GotWall = false;
@@ -60,7 +38,7 @@ public class WallsManager : MonoBehaviour
                 return Mathf.Abs(ws.transform.position.y - ws.minHeight) <= marge;
             });
 
-            if (allAtMin)
+            if (allAtMin || NoWallsUp)
             {
                 state = WallHeight.Normal;
                 GotWall = false;
@@ -75,7 +53,7 @@ public class WallsManager : MonoBehaviour
                 return Mathf.Abs(ws.transform.position.y - ws.maxHeight) <= marge;
             });
 
-            if (allAtMax)
+            if (allAtMax || MaxWallReached)
             {
                 GotWall = false;
                 currentWall = null;
@@ -83,7 +61,7 @@ public class WallsManager : MonoBehaviour
             }
         }
 
-        if (!GotWall)
+        if (!GotWall && MaxWallReached == false)
         {
             SelectRandomWall();
         }
@@ -94,6 +72,7 @@ public class WallsManager : MonoBehaviour
                 if (currentWall != null)
                 {
                     currentWall.MoveUp();
+                    wallsCurrentlyUp++;
                     if (currentWall.transform.position.y >= currentWall.maxHeight + marge)
                     {
                         currentWall = null;
@@ -105,6 +84,7 @@ public class WallsManager : MonoBehaviour
                 if (currentWall != null)
                 {
                     currentWall.MoveDown();
+                    wallsCurrentlyUp--;
                     if (currentWall.transform.position.y <= currentWall.minHeight + marge)
                     {
                         currentWall = null;
