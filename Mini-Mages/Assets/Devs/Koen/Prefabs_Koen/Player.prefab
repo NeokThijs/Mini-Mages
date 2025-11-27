@@ -172,8 +172,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 330a905c-5c88-461a-8eb6-a05aa70ad602
     m_ActionName: 'Players/Dash[/Keyboard/leftShift]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Players
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -194,12 +194,14 @@ MonoBehaviour:
   lookSpeed: 10
   canMove: 1
   colors:
-  - {fileID: 2100000, guid: 1633ac777d0d576478cac3f621624978, type: 2}
-  - {fileID: 2100000, guid: 6d1a05a284799884da05b7d40781d4f9, type: 2}
-  - {fileID: 2100000, guid: 4dbf93ce05c198444a5dde2ea7316db9, type: 2}
-  - {fileID: 2100000, guid: 395b20c2636e0da48ad1a32f71c17116, type: 2}
+  - {fileID: 2100000, guid: 83d1b3a8bba490f4daf053ca0fb53eeb, type: 2}
+  - {fileID: 2100000, guid: d48b238fa089abc49a8061c1acab2a34, type: 2}
+  - {fileID: 2100000, guid: 97c169720b5036b4c836403be28e5f63, type: 2}
+  - {fileID: 2100000, guid: d08a31ae9317ac042aee7e910dc434c0, type: 2}
   hitByFire: 0
-  GnomeHat: {fileID: 0}
+  GnomeColor: {fileID: 305133593990513836}
+  StaffColor: {fileID: 5651099699997044526}
+  playerAnimator: {fileID: 0}
 --- !u!114 &7069075633451147498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +425,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1864820358171973840}
   m_SourcePrefab: {fileID: 100100000, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+--- !u!1 &305133593990513836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8699652204047898494, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+  m_PrefabInstance: {fileID: 8973231995541771218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5651099699997044526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5554082065948066564, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}
+  m_PrefabInstance: {fileID: 8973231995541771218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8090218809801240195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bfc1d6d21e23f74986c5edeb42f30b2, type: 3}

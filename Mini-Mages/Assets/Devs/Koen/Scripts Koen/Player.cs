@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     public bool hitByFire = false;
     private float fireDuration = 5f;
     private float fireTimer = 0f;
-    public GameObject GnomeHat;
+    public GameObject GnomeColor;
+    public GameObject StaffColor;
     private float localStunDuration;
     private Collider Collider;
     public Animator playerAnimator;
@@ -25,10 +26,15 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         dashBrain = GetComponent<Dash>();
-        if (GnomeHat != null)
+        if (GnomeColor != null)
         { 
-        MeshRenderer = GnomeHat.GetComponent<MeshRenderer>();
-        MeshRenderer.material = colors[playerInputObject.playerIndex];
+        SkinnedMeshRenderer meshRenderer = GnomeColor.GetComponent<SkinnedMeshRenderer>();
+        meshRenderer.material = colors[playerInputObject.playerIndex];
+        }
+        if (StaffColor != null)
+        {
+            MeshRenderer StaffMesh = StaffColor.GetComponent<MeshRenderer>();
+            StaffMesh.material = colors[playerInputObject.playerIndex];
         }
         Collider = GetComponent<Collider>();
         Collider.excludeLayers = 1 << LayerMask.NameToLayer(gameObject.tag + "Attack");
