@@ -13,6 +13,10 @@ public class Pickup : MonoBehaviour
 
     public virtual void Activate(GameObject player)
     {
+        if (player.GetComponent<PlayerAttackManager>().CurrentIndicator != null)
+        {
+            player.GetComponent<PlayerAttackManager>().CurrentIndicator.SetActive(false);
+        }
         player.GetComponent<PlayerAttackManager>().SpecialAttack = AttackObject;
         player.GetComponent<PlayerAttackManager>().AttackAmount = 3;
     }

@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerAttackManager : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class PlayerAttackManager : MonoBehaviour
     private float whackTiming = 1.28f;
     private float currentWhackTiming;
     private Animator animator;
+    public GameObject WindIndicator;
+    public GameObject FireIndicator;
+    public GameObject LightningIndicator;
+    public GameObject CurrentIndicator;
+    private VisualEffect CurrentIndicatorEffect;
 
     public float AttackAmount;
 
@@ -30,7 +36,27 @@ public class PlayerAttackManager : MonoBehaviour
         {
             currentAttackCooldown -= Time.deltaTime;
         }
+        
         currentWhackTiming -= Time.deltaTime;
+        if (SpecialAttack != null)
+        {
+            if (SpecialAttack.gameObject.tag == "FireAttack")
+            {
+               CurrentIndicator = FireIndicator;
+               CurrentIndicator.SetActive(true);
+            }
+            else if (SpecialAttack.gameObject.tag == "LightningAttack")
+            {
+                CurrentIndicator = LightningIndicator;
+                CurrentIndicator.SetActive(true);
+            }
+            else if (SpecialAttack.gameObject.tag == "WindAttack")
+            {
+                CurrentIndicator = WindIndicator;
+                CurrentIndicator.SetActive(true);
+            }
+            CurrentIndicatorEffect = CurrentIndicator.GetComponentInChildren<VisualEffect>();
+        }
     }
     private void CheckAttack() // kijkt of er een special attack is, en of die nog niet op is
     {
@@ -38,6 +64,7 @@ public class PlayerAttackManager : MonoBehaviour
         {
             if (AttackAmount <= 0f)
             {
+                CurrentIndicator.SetActive(false);
                 SpecialAttack = null;
             }
         }
@@ -65,6 +92,7 @@ public class PlayerAttackManager : MonoBehaviour
                     Debug.Log("special attack gebruikt");
                 AttackAmount --; //attack charges -1
                 Debug.Log(AttackAmount + "charges left");
+                Invoke("FlashIndicator", attackCooldown);
             }
             else if (SpecialAttack == null && currentWhackTiming <= 0)
             {
@@ -83,5 +111,8 @@ public class PlayerAttackManager : MonoBehaviour
     {
         animator.SetLayerWeight(1, 0);
     }
-
+    private void FlashIndicator()
+    {
+        CurrentIndicatorEffect.Reinit();
+    }
 }
