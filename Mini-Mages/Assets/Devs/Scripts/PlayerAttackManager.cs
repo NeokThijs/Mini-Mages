@@ -88,6 +88,7 @@ public class PlayerAttackManager : MonoBehaviour
                 animator.SetTrigger("Cast");
                 GameObject Attack = Instantiate(SpecialAttack, PlaceAttack.position, PlaceAttack.rotation);
                     Attack.layer = LayerMask.NameToLayer(gameObject.tag + "Attack"); //zet de layer van de attack naar de player tag + attack
+
                     Attack.transform.parent = null; //remove the parent of the attack
                     Debug.Log("special attack gebruikt");
                 AttackAmount --; //attack charges -1
@@ -113,6 +114,6 @@ public class PlayerAttackManager : MonoBehaviour
     }
     private void FlashIndicator()
     {
-        CurrentIndicatorEffect.Reinit();
+        CurrentIndicatorEffect.Reinit(); 
     }
 }

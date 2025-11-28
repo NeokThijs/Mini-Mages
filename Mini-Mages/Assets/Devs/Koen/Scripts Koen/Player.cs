@@ -30,9 +30,12 @@ public class Player : MonoBehaviour
     [SerializeField] public float blinkDuration;
     [SerializeField] public float blinktimer;
 
+    private ChangeKnockback changeKnockBack;
+
 
     void Start()
     {
+        changeKnockBack = GetComponent<ChangeKnockback>();
         rb = GetComponent<Rigidbody>();
         dashBrain = GetComponent<Dash>();
         if (GnomeColor != null)

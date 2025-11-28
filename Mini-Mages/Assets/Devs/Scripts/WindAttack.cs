@@ -17,8 +17,11 @@ public class WindAttack : Attack
     private int parentLayer;
     private Rigidbody rb;
 
+    private ChangeKnockback changeKnockBack;
+
     private void Start()
     {
+        changeKnockBack = GetComponentInParent<ChangeKnockback>();
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
         if(rb != null)
@@ -48,9 +51,13 @@ public class WindAttack : Attack
             // jij geeft de player +1 knockback
             Rigidbody collisionRb = other.gameObject.GetComponent<Rigidbody>();
             Player playerScript = other.gameObject.GetComponent<Player>();
+
+            ChangeKnockback knockbackScript = other.gameObject.GetComponent<ChangeKnockback>();
+            knockbackScript.GetHit(); // knockback verhogen
+            knockbackScript.Hit(); // eigen knockback verlagen
             playerScript.tempStun(0.2f); // stun de player voor 0.5 sec
             playerScript.blinktimer = playerScript.blinkDuration; // start de blink effect
-            collisionRb.AddForce(transform.forward * Hitback, ForceMode.Impulse);  // knockback
+            collisionRb.AddForce(transform.forward * Hitback * knockbackScript.KnockBackStrength, ForceMode.Impulse);  // knockback
 
         }
         else if(other.gameObject.CompareTag("FireAttack") )
@@ -60,6 +67,7 @@ public class WindAttack : Attack
         }
         else if (other.gameObject.CompareTag("LightningAttack"))
         {
+            Debug.Log("hit lightning");
             LightningAttack lightningAttack = other.gameObject.GetComponent<LightningAttack>();
             lightningAttack.Death();
 

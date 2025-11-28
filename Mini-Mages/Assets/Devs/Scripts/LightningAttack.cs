@@ -15,8 +15,12 @@ public class LightningAttack : Attack
 
     Vector3 lastVelocity;
 
+    public ChangeKnockback changeKnockBack;
+
     private void Start()
     {
+        changeKnockBack = GetComponentInParent<ChangeKnockback>();
+
         rb = GetComponent<Rigidbody>();
         Debug.Log(gameObject.layer);
         rb.AddForce(10f * transform.forward, ForceMode.Impulse); // initial force
@@ -60,8 +64,11 @@ public class LightningAttack : Attack
         {
             Player playerscript = collision.gameObject.GetComponent<Player>();
             playerscript.blinktimer = playerscript.blinkDuration; // start knipperen
+            ChangeKnockback knockbackScript = collision.gameObject.GetComponent<ChangeKnockback>();
+            knockbackScript.GetHit(); // knockback verhogen
+            changeKnockBack.Hit(); // eigen knockback verlagen
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-            collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4); // knockback
+            collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4 * knockbackScript.KnockBackStrength); // knockback
             playerscript.tempStun(stunDuration); // player kan niet bewegen
             Death();
         } 

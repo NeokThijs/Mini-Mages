@@ -23,9 +23,6 @@ public class PlayerManager : MonoBehaviour
 
         //Debug.Log("gamepads: "+ Gamepad.all.ToString());
         //Debug.Log("xinputs: "+ XInputController.all.ToString());
-        
-        
-
 
         player.gameObject.transform.position = spawnPoints[player.playerIndex].position;
         player.gameObject.tag = playerTags[player.playerIndex];
