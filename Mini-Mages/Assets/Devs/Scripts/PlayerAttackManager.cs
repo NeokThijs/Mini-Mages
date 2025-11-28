@@ -56,6 +56,8 @@ public class PlayerAttackManager : MonoBehaviour
             startCooldown();
             if (SpecialAttack != null && AttackAmount > 0)
             {
+                //animator.SetLayerWeight(1, 1);
+                //Invoke("EndCast", 1f);
                 animator.SetTrigger("Cast");
                 GameObject Attack = Instantiate(SpecialAttack, PlaceAttack.position, PlaceAttack.rotation);
                     Attack.layer = LayerMask.NameToLayer(gameObject.tag + "Attack"); //zet de layer van de attack naar de player tag + attack
@@ -76,6 +78,10 @@ public class PlayerAttackManager : MonoBehaviour
     private void startCooldown()
     {
         currentAttackCooldown = attackCooldown;
+    }
+    private void EndCast()
+    {
+        animator.SetLayerWeight(1, 0);
     }
 
 }
