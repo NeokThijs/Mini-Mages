@@ -22,6 +22,7 @@ public class Dash : MonoBehaviour
         PlayerScript = GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
         runSmokeEffect = runningSmoke.GetComponent<VisualEffect>();
+        currentDashCooldown = dashCooldown;
 
     }
     private void Update()
