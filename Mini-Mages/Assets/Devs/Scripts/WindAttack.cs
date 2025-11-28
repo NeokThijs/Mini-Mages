@@ -21,7 +21,7 @@ public class WindAttack : Attack
 
     private void Start()
     {
-        changeKnockBack = GetComponentInParent<ChangeKnockback>();
+        //changeKnockBack = GetComponentInParent<ChangeKnockback>();
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
         if(rb != null)
@@ -54,9 +54,10 @@ public class WindAttack : Attack
 
             ChangeKnockback knockbackScript = other.gameObject.GetComponent<ChangeKnockback>();
             knockbackScript.GetHit(); // knockback verhogen
-            knockbackScript.Hit(); // eigen knockback verlagen
+            //knockbackScript.Hit(); // eigen knockback verlagen
             playerScript.tempStun(0.2f); // stun de player voor 0.5 sec
             playerScript.blinktimer = playerScript.blinkDuration; // start de blink effect
+            Debug.Log (knockbackScript.KnockBackStrength);
             collisionRb.AddForce(transform.forward * Hitback * knockbackScript.KnockBackStrength, ForceMode.Impulse);  // knockback
 
         }
