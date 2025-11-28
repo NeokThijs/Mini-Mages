@@ -11,13 +11,20 @@ public class Whack : MonoBehaviour
         Rigidbody otherRb = other.GetComponent<Rigidbody>();
         if(otherRb != null && IsWhacking == true )
         {
-            Player playerScript = other.GetComponent<Player>();
-            playerScript.tempStun(0.1f);
-            playerScript.blinktimer = playerScript.blinkDuration;
-            if (otherRb.gameObject.CompareTag("Player1") || otherRb.gameObject.CompareTag("Player2") || otherRb.gameObject.CompareTag("Player3") || otherRb.gameObject.CompareTag("Player4"))
+            if (other.gameObject.GetComponent<Player>() != null)
             {
-            Vector3 forceDirection = (other.transform.position - transform.position).normalized;
-            otherRb.AddForce(forceDirection * hitStrength, ForceMode.Impulse);
+                Player playerScript = other.GetComponent<Player>();
+                playerScript.tempStun(0.1f);
+                playerScript.blinktimer = playerScript.blinkDuration;
+                if (otherRb.gameObject.CompareTag("Player1") || otherRb.gameObject.CompareTag("Player2") || otherRb.gameObject.CompareTag("Player3") || otherRb.gameObject.CompareTag("Player4"))
+                {
+                    Vector3 forceDirection = (other.transform.position - transform.position).normalized;
+                    otherRb.AddForce(forceDirection * hitStrength, ForceMode.Impulse);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }

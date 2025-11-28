@@ -83,7 +83,7 @@ Rigidbody:
   m_GameObject: {fileID: 260186430510179831}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.75
+  m_LinearDamping: 1.5
   m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -208,8 +208,8 @@ MonoBehaviour:
   Grounded: 0
   normalSteps: {fileID: 5904766317520867209}
   fireSteps: {fileID: 4895528639249162536}
-  blinkIntensity: 0
-  blinkDuration: 0
+  blinkIntensity: 2
+  blinkDuration: 1
   blinktimer: 0
 --- !u!114 &7069075633451147498
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fc60a8f291f4940a3d660fac685349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  DashForce: 10
+  DashForce: 15
   dashCooldown: 2
   DashDuration: 0.3
   currentDashCooldown: 0

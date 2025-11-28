@@ -167,6 +167,7 @@ public class Player : MonoBehaviour
     {
         //GameManager.instance.playersInGame.Remove(gameObject);
     }
+
     private void OnTriggerStay(Collider other)
     {
         Grounded = true;
@@ -174,5 +175,9 @@ public class Player : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Grounded = false;
+    }
+    public void Drown()
+    {
+        playerAnimator.SetTrigger("Drowning");
     }
 }
