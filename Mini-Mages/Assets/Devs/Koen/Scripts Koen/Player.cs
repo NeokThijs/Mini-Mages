@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private Collider Collider;
     public Animator playerAnimator;
     public bool Grounded;
+
 
     void Start()
     {

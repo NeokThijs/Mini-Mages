@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Dash : MonoBehaviour
 {
@@ -12,12 +13,17 @@ public class Dash : MonoBehaviour
     private Player PlayerScript;
     public GameObject dashEffect;
     private Animator animator;
+    public GameObject runningSmoke;
+    private VisualEffect runSmokeEffect;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
         PlayerInput = GetComponent<PlayerInput>();
         PlayerScript = GetComponent<Player>();
         rb = GetComponent<Rigidbody>();
+        runSmokeEffect = runningSmoke.GetComponent<VisualEffect>();
+        currentDashCooldown = dashCooldown;
+
     }
     private void Update()
     {
@@ -32,6 +38,7 @@ public class Dash : MonoBehaviour
     {
         if (context.performed && currentDashCooldown <= 0)
         {
+            runSmokeEffect.Reinit();
             animator.SetTrigger("Dash");
             Debug.Log("Dash executed");
             Instantiate(dashEffect, gameObject.transform.position, gameObject.transform.rotation);
