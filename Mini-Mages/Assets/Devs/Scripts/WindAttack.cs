@@ -47,6 +47,9 @@ public class WindAttack : Attack
         {
             // jij geeft de player +1 knockback
             Rigidbody collisionRb = other.gameObject.GetComponent<Rigidbody>();
+            Player playerScript = other.gameObject.GetComponent<Player>();
+            playerScript.tempStun(0.2f); // stun de player voor 0.5 sec
+            playerScript.blinktimer = playerScript.blinkDuration; // start de blink effect
             collisionRb.AddForce(transform.forward * Hitback, ForceMode.Impulse);  // knockback
 
         }

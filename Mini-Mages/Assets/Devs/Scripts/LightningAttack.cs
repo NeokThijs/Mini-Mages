@@ -59,6 +59,7 @@ public class LightningAttack : Attack
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player3") || collision.gameObject.CompareTag("Player4"))
         {
             Player playerscript = collision.gameObject.GetComponent<Player>();
+            playerscript.blinktimer = playerscript.blinkDuration; // start knipperen
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
             collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4); // knockback
             playerscript.tempStun(stunDuration); // player kan niet bewegen

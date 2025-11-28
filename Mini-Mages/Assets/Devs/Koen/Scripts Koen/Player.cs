@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float lookSpeed = 10f;
     public bool canMove = true;
     private Dash dashBrain;
-    private MeshRenderer MeshRenderer;
+    private SkinnedMeshRenderer meshRenderer;
     public Material[] colors;
     private Rigidbody rb;
     public bool hitByFire = false;
@@ -23,6 +23,12 @@ public class Player : MonoBehaviour
     private Collider Collider;
     public Animator playerAnimator;
     public bool Grounded;
+    public GameObject normalSteps;
+    public GameObject fireSteps;
+
+    [SerializeField] private float blinkIntensity;
+    [SerializeField] public float blinkDuration;
+    [SerializeField] public float blinktimer;
 
 
     void Start()
@@ -31,7 +37,7 @@ public class Player : MonoBehaviour
         dashBrain = GetComponent<Dash>();
         if (GnomeColor != null)
         { 
-        SkinnedMeshRenderer meshRenderer = GnomeColor.GetComponent<SkinnedMeshRenderer>();
+        meshRenderer = GnomeColor.GetComponent<SkinnedMeshRenderer>();
         meshRenderer.material = colors[playerInputObject.playerIndex];
         }
         if (StaffColor != null)
@@ -47,6 +53,21 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        blinktimer -= Time.deltaTime;
+        float lerp = Mathf.Clamp01(blinktimer / blinkDuration);
+        float intensity = (lerp * blinkIntensity) + 1.0f;
+        meshRenderer.material.color = Color.white * intensity;
+
+        if (hitByFire == true)
+        {
+            fireSteps.SetActive(true);
+            normalSteps.SetActive(false);
+        }
+        else if (hitByFire == false)
+        {
+            fireSteps.SetActive(false);
+            normalSteps.SetActive(true);
+        }
         // Build a world-space movement vector (y=0 to keep movement on the XZ plane)
         Vector3 worldMove = new Vector3(Movement.x, 0f, Movement.z);
 
@@ -117,6 +138,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("FireAttack"))
         {
+            blinktimer = blinkDuration;
             hitByFire = true;
         }
         if (collision.gameObject.CompareTag("DeathWater"))
