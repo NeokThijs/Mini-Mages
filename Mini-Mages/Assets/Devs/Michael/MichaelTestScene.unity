@@ -1684,6 +1684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPickupArea
       objectReference: {fileID: 0}
+    - target: {fileID: 8206062572357252458, guid: d85783b7817232d43a1fe243af93c053, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1948,9 +1952,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 780429718}
     m_Modifications:
+    - target: {fileID: 4732544807833947797, guid: 06331a2e808876e4984a7ab9192d0faa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7877335073324386561, guid: 06331a2e808876e4984a7ab9192d0faa, type: 3}
       propertyPath: m_Name
       value: LightningPU
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877335073324386561, guid: 06331a2e808876e4984a7ab9192d0faa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9047542295194830950, guid: 06331a2e808876e4984a7ab9192d0faa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2321,9 +2333,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7012285982148331287, guid: a2e9637bea750b540a1cbaabd668f2ab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8492802622328227788, guid: a2e9637bea750b540a1cbaabd668f2ab, type: 3}
       propertyPath: m_Name
       value: TestLightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492802622328227788, guid: a2e9637bea750b540a1cbaabd668f2ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -21,6 +21,8 @@ public class WallsManager : MonoBehaviour
     public float TimerInterval;
     [SerializeField] private List<GameObject> StartGameWalls = new List<GameObject>();
 
+    private HashSet<WallObjectSelf> usedWalls = new HashSet<WallObjectSelf>(); // voor de gebruikte muren
+
     void Start()
     {
         WallsUpBeginGame();
@@ -131,30 +133,51 @@ public class WallsManager : MonoBehaviour
 
     private void SelectRandomWall()
     {
-        if (GotWall == false)
+        // maakt list aan voor muren die nog niet zijn geweest
+        var availableWalls = walls
+            .Select(w => w.GetComponent<WallObjectSelf>()) // w is de muur 
+            .Where(w => !usedWalls.Contains(w))
+            .ToList();
+
+        if (availableWalls.Count == 0)
         {
-            currentWall = walls[Random.Range(0, walls.Count)].GetComponent<WallObjectSelf>();
-            Debug.Log("Got Wall");
-            if (lastWall != currentWall)
-            {
-                GotWall = true;
-            }
+            // als alle muren zijn geweest verwijderd ie ze allemaal/leegt ie de list
+            usedWalls.Clear();
+            availableWalls = walls.Select(w => w.GetComponent<WallObjectSelf>()).ToList();
         }
+
+        // pakt random muur van de overige muren
+        var newWall = availableWalls[Random.Range(0, availableWalls.Count)];
+
+        currentWall = newWall;
+        GotWall = true;
+        usedWalls.Add(newWall); // de muur die is gebruikt
+        Debug.Log("Got Wall: " + currentWall.name);
     }
+
     private void WallsUpBeginGame()
     {
         if (StartGameWalls.Count == 0)
         {
-            for (int i = 0; i < MaxWall; i++)
+            var alreadyUsed = new HashSet<GameObject>(); // maakt list aan voor de muren die al zijn gebruikt
+
+            while (StartGameWalls.Count < MaxWall)
             {
                 var wall = walls[Random.Range(0, walls.Count)];
+
+                if (alreadyUsed.Contains(wall))
+                {
+                    continue; // sla dubbele over
+                }
+
                 StartGameWalls.Add(wall);
+                alreadyUsed.Add(wall);
             }
         }
 
-        foreach (var wall in StartGameWalls)
+        foreach (var wall in StartGameWalls) // loopt door de objecten heen
         {
-            wall.transform.position = new Vector3(wall.transform.position.x, 0.6f, wall.transform.position.z);
+            wall.transform.position = new Vector3(wall.transform.position.x, 0.6f, wall.transform.position.z); // plaats ze op de correcte hoogte
         }
     }
 }
