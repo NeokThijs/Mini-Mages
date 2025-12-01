@@ -131,6 +131,7 @@ MonoBehaviour:
   AttackObject: {fileID: 1651467302455331050, guid: 87a9f86f6fd68ef44a15f0cd8497cbe7, type: 3}
   CountTillDT: 0
   DestroyTime: 15
+  collectionParticle: {fileID: 4684870755760028968, guid: ef9e1b89a0ea15a48b4711c05406caa3, type: 3}
 --- !u!54 &8745980512308032537
 Rigidbody:
   m_ObjectHideFlags: 0
