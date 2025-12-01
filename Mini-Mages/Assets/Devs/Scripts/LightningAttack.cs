@@ -12,6 +12,8 @@ public class LightningAttack : Attack
     public float stunDuration = 0.5f;
     public GameObject bounceEffect;
     public GameObject hitEffect;
+    public string ownerTag;
+    private GameObject owner;
 
     Vector3 lastVelocity;
 
@@ -20,7 +22,9 @@ public class LightningAttack : Attack
     private void Start()
     {
         //changeKnockBack = GetComponentInParent<ChangeKnockback>();
-
+        owner = GameObject.FindGameObjectWithTag(ownerTag);
+        ChangeKnockback ownerPlayerScript = owner.GetComponent<ChangeKnockback>();
+        changeKnockBack = ownerPlayerScript;
         rb = GetComponent<Rigidbody>();
         Debug.Log(gameObject.layer);
         rb.AddForce(10f * transform.forward, ForceMode.Impulse); // initial force
@@ -66,7 +70,7 @@ public class LightningAttack : Attack
             playerscript.blinktimer = playerscript.blinkDuration; // start knipperen
             ChangeKnockback knockbackScript = collision.gameObject.GetComponent<ChangeKnockback>();
             knockbackScript.GetHit(); // knockback verhogen
-            //changeKnockBack.Hit(); // eigen knockback verlagen
+            changeKnockBack.Hit(); // eigen knockback verlagen
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
             collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4 * knockbackScript.KnockBackStrength); // knockback
             playerscript.tempStun(stunDuration); // player kan niet bewegen

@@ -83,15 +83,22 @@ public class PlayerAttackManager : MonoBehaviour
             startCooldown();
             if (SpecialAttack != null && AttackAmount > 0)
             {
-                //animator.SetLayerWeight(1, 1);
-                //Invoke("EndCast", 1f);
                 animator.SetTrigger("Cast");
                 GameObject Attack = Instantiate(SpecialAttack, PlaceAttack.position, PlaceAttack.rotation);
                     Attack.layer = LayerMask.NameToLayer(gameObject.tag + "Attack"); //zet de layer van de attack naar de player tag + attack
+                if (Attack.CompareTag("LightningAttack"))
+                {
+                    LightningAttack lightningScript = Attack.GetComponent<LightningAttack>();
+                    lightningScript.ownerTag = gameObject.tag;
+                }
+                else if (Attack.CompareTag("WindAttack"))
+                {
+                    WindAttack windScript = Attack.GetComponent<WindAttack>();
+                    windScript.ownerTag = gameObject.tag;
+                }
                     Attack.transform.parent = null; //remove the parent of the attack
-                Debug.Log("special attack gebruikt");
+
                 AttackAmount --; //attack charges -1
-                Debug.Log(AttackAmount + "charges left");
                 Invoke("FlashIndicator", attackCooldown);
             }
             else if (SpecialAttack == null && currentWhackTiming <= 0)
