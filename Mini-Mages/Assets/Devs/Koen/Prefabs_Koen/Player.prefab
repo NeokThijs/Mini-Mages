@@ -1021,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8020398263051867086, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: hitStrength
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8020398263051867086, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: whackEffect
