@@ -19,7 +19,8 @@ public class WallsManager : MonoBehaviour
     public float MaxWall = 3;
     public float WallTimer;
     public float TimerInterval;
-    [SerializeField] private List<GameObject> StartGameWalls = new List<GameObject>();
+    private List<WallObjectSelf> currentWallsGroup = new List<WallObjectSelf>();
+    private List<GameObject> WallsGoUp = new List<GameObject>();
 
     private HashSet<WallObjectSelf> usedWalls = new HashSet<WallObjectSelf>(); // voor de gebruikte muren
 
@@ -85,7 +86,7 @@ public class WallsManager : MonoBehaviour
 
         if (!GotWall && currentWall == null)
         {
-            SelectRandomWall();
+            SelectRandomWalls();
         }
 
         switch (state)
@@ -131,7 +132,7 @@ public class WallsManager : MonoBehaviour
         }
     }
 
-    private void SelectRandomWall()
+    private void SelectRandomWalls()
     {
         // maakt list aan voor muren die nog niet zijn geweest
         var availableWalls = walls
@@ -157,11 +158,11 @@ public class WallsManager : MonoBehaviour
 
     private void WallsUpBeginGame()
     {
-        if (StartGameWalls.Count == 0)
+        if (WallsGoUp.Count == 0)
         {
             var alreadyUsed = new HashSet<GameObject>(); // maakt list aan voor de muren die al zijn gebruikt
 
-            while (StartGameWalls.Count < MaxWall)
+            while (WallsGoUp.Count < MaxWall)
             {
                 var wall = walls[Random.Range(0, walls.Count)];
 
@@ -170,16 +171,22 @@ public class WallsManager : MonoBehaviour
                     continue; // sla dubbele over
                 }
 
-                StartGameWalls.Add(wall);
+                WallsGoUp.Add(wall);
                 alreadyUsed.Add(wall);
             }
         }
 
-        foreach (var wall in StartGameWalls) // loopt door de objecten heen
+        foreach (var wall in WallsGoUp) // loopt door de objecten heen
         {
             WallObjectSelf WOScript = wall.GetComponent<WallObjectSelf>();
 
             wall.transform.position = new Vector3(wall.transform.position.x, WOScript.maxHeight, wall.transform.position.z); // plaats ze op de correcte hoogte
         }
     }
+
+    // uitvoering voor in code
+    // pakt 3 muren van de muren die je kan pakken
+    // die 3 muren moeten per stuk omhoog gaan
+    // per stuk omlaag als alles omhoog is
+    // pakt dan 3 andere muren zolang het niet 2 of meer dezelfde zijn
 }

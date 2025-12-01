@@ -11,6 +11,7 @@ public class Pickup : MonoBehaviour
     public float CountTillDT;
     public float DestroyTime = 15;
     public GameObject collectionParticle;
+    public GameObject DeathParticle;
 
     public virtual void Activate(GameObject player)
     {
@@ -28,6 +29,7 @@ public class Pickup : MonoBehaviour
 
         if (CountTillDT >= DestroyTime)
         {
+            Instantiate(DeathParticle,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -38,10 +40,7 @@ public class Pickup : MonoBehaviour
         {
             if (collectionParticle != null)
             {
-                if (other.GetComponent<PlayerAttackManager>().CurrentIndicator != null)
-                {
-                    other.GetComponent<PlayerAttackManager>().SpawnCollectionParticle(collectionParticle);
-                }
+                other.GetComponent<PlayerAttackManager>().SpawnCollectionParticle(collectionParticle);
             }
             Activate(other.gameObject);
             Destroy(gameObject);

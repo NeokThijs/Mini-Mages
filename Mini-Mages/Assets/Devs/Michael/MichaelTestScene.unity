@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: 0
+  minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
