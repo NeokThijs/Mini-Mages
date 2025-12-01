@@ -10,6 +10,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] public GameObject AttackObject;
     public float CountTillDT;
     public float DestroyTime = 15;
+    public GameObject collectionParticle;
 
     public virtual void Activate(GameObject player)
     {
@@ -35,6 +36,10 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag ("Player2") || other.gameObject.CompareTag("Player3") || other.gameObject.CompareTag("Player4"))
         {
+            if (collectionParticle != null)
+            {
+                Instantiate(collectionParticle, other.transform.position, other.transform.rotation);
+            }
             Activate(other.gameObject);
             Destroy(gameObject);
         }
