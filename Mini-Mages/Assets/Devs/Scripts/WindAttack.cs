@@ -11,8 +11,10 @@ public class WindAttack : Attack
     public float lessSpeedPSec = 100f;
     public float ObjectSpeed;
     public float Hitback;
-    
-    
+
+    public string ownerTag;
+    private GameObject owner;
+
     public GameObject parent;
     private int parentLayer;
     private Rigidbody rb;
@@ -21,7 +23,14 @@ public class WindAttack : Attack
 
     private void Start()
     {
-        //changeKnockBack = GetComponentInParent<ChangeKnockback>();
+        if (parent != null && ownerTag == null || ownerTag == "" && parent != null)
+        {
+            WindAttack parentScript = parent.GetComponent<WindAttack>();
+            ownerTag = parentScript.ownerTag;
+            owner = GameObject.FindGameObjectWithTag(ownerTag);
+            ChangeKnockback ownerPlayerScript = owner.GetComponent<ChangeKnockback>();
+            changeKnockBack = ownerPlayerScript;
+        }
         rb = GetComponent<Rigidbody>();
         ObjectSpeed = AttackSpeed;
         if(rb != null)
@@ -54,7 +63,7 @@ public class WindAttack : Attack
 
             ChangeKnockback knockbackScript = other.gameObject.GetComponent<ChangeKnockback>();
             knockbackScript.GetHit(); // knockback verhogen
-            //knockbackScript.Hit(); // eigen knockback verlagen
+            changeKnockBack.Hit(); // eigen knockback verlagen
             playerScript.tempStun(0.2f); // stun de player voor 0.5 sec
             playerScript.blinktimer = playerScript.blinkDuration; // start de blink effect
             Debug.Log (knockbackScript.KnockBackStrength);
