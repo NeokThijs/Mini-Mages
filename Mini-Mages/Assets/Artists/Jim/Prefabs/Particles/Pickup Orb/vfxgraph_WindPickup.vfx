@@ -13521,7 +13521,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615380}
   m_ExposedName: AllSize
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -18099,7 +18099,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615751}
   - {fileID: 8926484042661615752}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661615744}
   m_MasterData:
@@ -19179,7 +19179,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615798}
   - {fileID: 8926484042661615804}
   - {fileID: 8926484042661615842}
-  m_UIPosition: {x: 7432, y: 790}
+  m_UIPosition: {x: 7432, y: 855}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -21315,7 +21315,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615896}
   m_ExposedName: HurricaneTransparency
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
