@@ -21,10 +21,6 @@ public class PlayerAttackManager : MonoBehaviour
     public GameObject CurrentIndicator;
     private VisualEffect CurrentIndicatorEffect;
 
-    public GameObject lightningCollectionParticle;
-    public GameObject fireCollectionParticle;
-    public GameObject windCollectionParticle;
-
     public float AttackAmount;
 
     private void Start()
@@ -46,19 +42,16 @@ public class PlayerAttackManager : MonoBehaviour
         {
             if (SpecialAttack.gameObject.tag == "FireAttack")
             {
-                //Instantiate(fireCollectionParticle, transform.position, Quaternion.identity);
                CurrentIndicator = FireIndicator;
                CurrentIndicator.SetActive(true);
             }
             else if (SpecialAttack.gameObject.tag == "LightningAttack")
             {
-                Instantiate(lightningCollectionParticle, transform.position, Quaternion.identity);
                 CurrentIndicator = LightningIndicator;
                 CurrentIndicator.SetActive(true);
             }
             else if (SpecialAttack.gameObject.tag == "WindAttack")
             {
-                //Instantiate(windCollectionParticle, transform.position, Quaternion.identity);
                 CurrentIndicator = WindIndicator;
                 CurrentIndicator.SetActive(true);
             }
@@ -113,7 +106,6 @@ public class PlayerAttackManager : MonoBehaviour
                 currentWhackTiming = whackTiming;
                 animator.SetTrigger("Whack");
                 WhackScript.StartWhacking();
-                //Instantiate(Wack, PlaceAttack.position, PlaceAttack.rotation);
             }
         }
     }
@@ -128,5 +120,10 @@ public class PlayerAttackManager : MonoBehaviour
     private void FlashIndicator()
     {
         CurrentIndicatorEffect.Reinit(); 
+    }
+
+    public void SpawnCollectionParticle(GameObject Particle)
+    {
+        Instantiate(Particle, transform.position, Quaternion.identity, gameObject.transform);
     }
 }
