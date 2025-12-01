@@ -29,7 +29,7 @@ public class Pickup : MonoBehaviour
 
         if (CountTillDT >= DestroyTime)
         {
-            Instantiate(collectionParticle,transform.position,Quaternion.identity);
+            Instantiate(DeathParticle,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }

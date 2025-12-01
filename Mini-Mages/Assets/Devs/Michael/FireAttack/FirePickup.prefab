@@ -109,6 +109,7 @@ MonoBehaviour:
   CountTillDT: 0
   DestroyTime: 15
   collectionParticle: {fileID: 2649887026110274187, guid: 98faf25b6352ef442a79bacc8958d0f8, type: 3}
+  DeathParticle: {fileID: 5245766722097059653, guid: e5b6133c9a5980d449f7a74a444f627c, type: 3}
 --- !u!54 &6039848928258906420
 Rigidbody:
   m_ObjectHideFlags: 0
