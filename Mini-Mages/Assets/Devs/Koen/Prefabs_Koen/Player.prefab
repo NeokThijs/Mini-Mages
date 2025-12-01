@@ -250,6 +250,9 @@ MonoBehaviour:
   FireIndicator: {fileID: 4500151118248786352}
   LightningIndicator: {fileID: 1131149165488996798}
   CurrentIndicator: {fileID: 0}
+  lightningCollectionParticle: {fileID: 4403621782799204061, guid: 49f7fabbbfbeb9347b16fc7119e6f3d4, type: 3}
+  fireCollectionParticle: {fileID: 0}
+  windCollectionParticle: {fileID: 0}
   AttackAmount: 0
 --- !u!65 &3335541262371261430
 BoxCollider:
