@@ -38,7 +38,10 @@ public class Pickup : MonoBehaviour
         {
             if (collectionParticle != null)
             {
-                Instantiate(collectionParticle, other.transform.position, other.transform.rotation);
+                if (other.GetComponent<PlayerAttackManager>().CurrentIndicator != null)
+                {
+                    other.GetComponent<PlayerAttackManager>().SpawnCollectionParticle(collectionParticle);
+                }
             }
             Activate(other.gameObject);
             Destroy(gameObject);
