@@ -105,7 +105,8 @@ MonoBehaviour:
   AttackSpeed: 2000
   lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 10
+  Hitback: 5
+  ownerTag: 
   parent: {fileID: 1651467302455331050}
 --- !u!1 &1651467302455331050
 GameObject:
@@ -166,6 +167,7 @@ MonoBehaviour:
   lessSpeedPSec: 100
   ObjectSpeed: 0
   Hitback: 0
+  ownerTag: 
   parent: {fileID: 0}
 --- !u!1 &3645963847658663052
 GameObject:
@@ -272,7 +274,8 @@ MonoBehaviour:
   AttackSpeed: 2000
   lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 10
+  Hitback: 5
+  ownerTag: 
   parent: {fileID: 1651467302455331050}
 --- !u!1 &8177677482599724554
 GameObject:
@@ -379,7 +382,8 @@ MonoBehaviour:
   AttackSpeed: 2000
   lessSpeedPSec: 100
   ObjectSpeed: 0
-  Hitback: 10
+  Hitback: 5
+  ownerTag: 
   parent: {fileID: 1651467302455331050}
 --- !u!1001 &386228368259774318
 PrefabInstance:
@@ -660,4 +664,5 @@ MonoBehaviour:
   lessSpeedPSec: 100
   ObjectSpeed: 0
   Hitback: 0
+  ownerTag: 
   parent: {fileID: 0}
