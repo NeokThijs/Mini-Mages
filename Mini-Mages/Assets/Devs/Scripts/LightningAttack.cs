@@ -72,7 +72,7 @@ public class LightningAttack : Attack
             knockbackScript.GetHit(); // knockback verhogen
             changeKnockBack.Hit(); // eigen knockback verlagen
             Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-            collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * 4 * knockbackScript.KnockBackStrength); // knockback
+            collisionRb.AddForce(gameObject.transform.forward * ObjectSpeed * knockbackScript.KnockBackStrength, ForceMode.Impulse); // knockback
             playerscript.tempStun(stunDuration); // player kan niet bewegen
             Death();
         } 
