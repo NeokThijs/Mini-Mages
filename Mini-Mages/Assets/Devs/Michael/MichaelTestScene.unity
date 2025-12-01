@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
   maxHeight: 0.6
-  minHeight: -1
+  minHeight: 0
   mainHeight: 0
   ObjectSpeed: 2
   DownObjectSpeed: 0.5
@@ -1900,6 +1900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: TimerInterval
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
       propertyPath: 'walls.Array.data[0]'
       value: 
       objectReference: {fileID: 983396126}
@@ -1923,6 +1927,10 @@ PrefabInstance:
       propertyPath: 'walls.Array.data[5]'
       value: 
       objectReference: {fileID: 983396121}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: StartGameWalls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7709833040238695179, guid: 622da865b887f134997b65ea877922d4, type: 3}
       propertyPath: m_Name
       value: WallsUpDownManager
