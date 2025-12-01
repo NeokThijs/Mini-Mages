@@ -177,7 +177,9 @@ public class WallsManager : MonoBehaviour
 
         foreach (var wall in StartGameWalls) // loopt door de objecten heen
         {
-            wall.transform.position = new Vector3(wall.transform.position.x, 0.6f, wall.transform.position.z); // plaats ze op de correcte hoogte
+            WallObjectSelf WOScript = GetComponent<WallObjectSelf>();
+
+            wall.transform.position = new Vector3(wall.transform.position.x, WOScript.maxHeight, wall.transform.position.z); // plaats ze op de correcte hoogte
         }
     }
 }
