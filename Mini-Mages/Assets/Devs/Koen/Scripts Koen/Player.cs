@@ -32,16 +32,15 @@ public class Player : MonoBehaviour
 
     private ChangeKnockback changeKnockBack;
 
-
     void Start()
     {
         changeKnockBack = GetComponent<ChangeKnockback>();
         rb = GetComponent<Rigidbody>();
         dashBrain = GetComponent<Dash>();
         if (GnomeColor != null)
-        { 
-        meshRenderer = GnomeColor.GetComponent<SkinnedMeshRenderer>();
-        meshRenderer.material = colors[playerInputObject.playerIndex];
+        {
+            meshRenderer = GnomeColor.GetComponent<SkinnedMeshRenderer>();
+            meshRenderer.material = colors[playerInputObject.playerIndex];
         }
         if (StaffColor != null)
         {
@@ -77,12 +76,13 @@ public class Player : MonoBehaviour
         // If there is movement, rotate to face the movement direction.
         if (worldMove.sqrMagnitude > 0.0001f)
         {
-             Quaternion targetRotation = Quaternion.LookRotation(worldMove.normalized);
-             // Smoothly rotate toward the target rotation. For instant rotation use: transform.rotation = targetRotation;
-             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(worldMove.normalized);
+            // Smoothly rotate toward the target rotation. For instant rotation use: transform.rotation = targetRotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed * Time.deltaTime);
         }
-        // Move in world space so changing the GameObject's rotation does NOT change the movement direction.
-        transform.Translate(worldMove * Time.deltaTime * moveSpeed, Space.World);
+        // Move in world space so changing the GameObject's rotation does NOT change the movement direction
+        if (canMove)
+            transform.Translate(worldMove * Time.deltaTime * moveSpeed, Space.World);
         //rb.AddForce(worldMove * moveSpeed, ForceMode.Acceleration);
         if (hitByFire)
         {
@@ -94,10 +94,10 @@ public class Player : MonoBehaviour
             }
             assOnFire();
         }
-        if(localStunDuration > 0)
+        if (localStunDuration > 0)
         {
             localStunDuration -= Time.deltaTime;
-            if(localStunDuration <= 0)
+            if (localStunDuration <= 0)
             {
                 canMove = true;
             }
@@ -119,8 +119,11 @@ public class Player : MonoBehaviour
     {
         if (canMove == true)
         {
+
+
             Movement.x = context.ReadValue<Vector2>().x;
             Movement.z = context.ReadValue<Vector2>().y;
+
         }
         else if (canMove == false)
         {
