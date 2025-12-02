@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         StartUI.SetActive(true);
         Leaderboard.SetActive(false);
         Time.timeScale = 0f; // stop the game  
-        WallsManager = FindAnyObjectByType<WallsManager>();
+        //WallsManager = FindAnyObjectByType<WallsManager>();
     }
 
     void Update()
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
         {
-            WallsManager.RoundTimer = 0;
+            //WallsManager.RoundTimer = 0;
             winningPlayer = playersInGame[0].name;
             RemoveAllPickups();
             if (PlayerWins[0] == 3)
@@ -124,20 +124,19 @@ public class GameManager : MonoBehaviour
     private void PlayerObjToList()
     {
         // zoekt de objecten met de tag player
-        players = new GameObject[] { GameObject.FindGameObjectWithTag("Player1"), 
-            GameObject.FindGameObjectWithTag("Player2"), 
-            GameObject.FindGameObjectWithTag("Player3"), 
-            GameObject.FindGameObjectWithTag("Player4")
+        players = new GameObject[] 
+            { 
+                GameObject.FindGameObjectWithTag("Player1"), 
+                GameObject.FindGameObjectWithTag("Player2"), 
+                GameObject.FindGameObjectWithTag("Player3"), 
+                GameObject.FindGameObjectWithTag("Player4")
             }; // alle players zoeken
         for (int i = 0; i < players.Length; i++)
         {
             playersInGame.Add(players[i]);
+            targetGroup.AddMember(players[i].transform, 1, 0.5f);
+            Debug.Log("Voegt player toe a/d list");
         }
-        foreach (GameObject Player in players) // camera zooi
-        {
-            targetGroup.AddMember(Player.transform, 1, 0.5f);
-        }
-        Debug.Log("Voegt player toe a/d list");
     }
 
     private void RemoveOldPlayers()
@@ -153,25 +152,25 @@ public class GameManager : MonoBehaviour
     {
         isRoundActive = true;
         
-        List<Transform> avalibleSpawns = new List<Transform>(SpawnpointsPlayers); // nieuwe list
+        List<Transform> availableSpawns = new List<Transform>(SpawnpointsPlayers); // nieuwe list
 
         for (int i = 0; i < PlayerAmount; i++)
         {
 
-            if (avalibleSpawns.Count == 0)
+            if (availableSpawns.Count == 0)
             {
                 Debug.LogWarning("Niet genoeg spawnpoints voor alle spelers!");
                 break;
             }
 
-            int index = Random.Range(0, avalibleSpawns.Count); // checkt ofdat er plek is
-            Transform spawnPoint = avalibleSpawns[index];
+            int index = Random.Range(0, availableSpawns.Count); // checkt ofdat er plek is
+            Transform spawnPoint = availableSpawns[index];
 
             GameObject spawnedPlayer = Instantiate(player, spawnPoint.position, Quaternion.identity);
             Debug.Log("Spawn player");
             spawnedPlayer.name = playerNames[i]; // spawned 1 player extra dus moet ff gefixed worden
 
-            avalibleSpawns.RemoveAt(index);
+            availableSpawns.RemoveAt(index);
         }
     }
 
