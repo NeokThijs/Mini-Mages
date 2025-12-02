@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     public float showLeaderboard = 10;
 
     [Header("Player Registration")]
+    public GameObject[] players; 
     private string[] playerNames = { "Red", "Blue", "Yellow", "Green" };
     public string winningPlayer;
 
@@ -122,7 +124,11 @@ public class GameManager : MonoBehaviour
     private void PlayerObjToList()
     {
         // zoekt de objecten met de tag player
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); // alle players zoeken
+        players = new GameObject[] { GameObject.FindGameObjectWithTag("Player1"), 
+            GameObject.FindGameObjectWithTag("Player2"), 
+            GameObject.FindGameObjectWithTag("Player3"), 
+            GameObject.FindGameObjectWithTag("Player4")
+            }; // alle players zoeken
         for (int i = 0; i < players.Length; i++)
         {
             playersInGame.Add(players[i]);
