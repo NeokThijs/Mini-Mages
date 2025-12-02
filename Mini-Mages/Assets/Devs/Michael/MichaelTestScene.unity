@@ -263,6 +263,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7257698405265481632, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+--- !u!114 &214430150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214430142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
+  minHeight: -2
+  ObjectSpeed: 0.4
 --- !u!1 &393912155
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       propertyPath: m_LocalScale.z
@@ -614,12 +628,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2312580591749073415, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 214430146}
+    - targetCorrespondingSourceObject: {fileID: -2312580591749073415, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 214430150}
     - targetCorrespondingSourceObject: {fileID: -3780990298695454615, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1570570230}
     - targetCorrespondingSourceObject: {fileID: 2493382932793280769, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2128250172}
+    - targetCorrespondingSourceObject: {fileID: 2493382932793280769, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2128250176}
     - targetCorrespondingSourceObject: {fileID: 7848324550585741467, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1788291041}
@@ -699,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -716,7 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -1145,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -1226,7 +1246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -1409,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -1453,7 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd78c89669b0a584ea1de7f15fbac8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WallObjectSelf
-  maxHeight: 0.6
+  maxHeight: 1.5
   minHeight: -0.05
   mainHeight: 0
   ObjectSpeed: 2
@@ -1591,6 +1611,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1871346335192149068, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+--- !u!114 &2128250176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128250168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
+  minHeight: -2
+  ObjectSpeed: 0.4
 --- !u!1001 &536364452200937821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1919,6 +1953,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: InsideRing
+      value: 
+      objectReference: {fileID: 214430142}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: OutsideRing
+      value: 
+      objectReference: {fileID: 2128250168}
     - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
       propertyPath: TimerInterval
       value: 6

@@ -55,11 +55,11 @@ public class WallsManager : MonoBehaviour
             WallTimer = 0;
         }
 
-        if (RoundTimer >= 50)
+        if (RoundTimer >= 3)
         {
             OutsideRingGoDown();
         }
-        if (RoundTimer >= 75)
+        if (RoundTimer >= 5)
         {
             InsideRingGoDown();
         }
