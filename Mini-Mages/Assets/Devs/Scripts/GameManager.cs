@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Registration")]
     public GameObject[] players; 
-    private string[] playerNames = { "Red", "Blue", "Yellow", "Green" };
+    private string[] playerNames = { "Red", "Blue", "Yellow", "Purple" };
     public string winningPlayer;
 
     [Header("Winner Registration")]
