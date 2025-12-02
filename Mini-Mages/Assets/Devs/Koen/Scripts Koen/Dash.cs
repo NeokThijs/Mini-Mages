@@ -34,7 +34,7 @@ public class Dash : MonoBehaviour
         }
 
     }
-     public void ExecuteDash(InputAction.CallbackContext context)
+    public void ExecuteDash(InputAction.CallbackContext context)
     {
         if (context.performed && currentDashCooldown <= 0)
         {
@@ -43,13 +43,11 @@ public class Dash : MonoBehaviour
             Debug.Log("Dash executed");
             Instantiate(dashEffect, gameObject.transform.position, gameObject.transform.rotation);
             PlayerScript.canMove = false;
+            rb.linearVelocity = Vector3.zero;
             rb.AddForce(DashForce * transform.forward, ForceMode.VelocityChange);
             currentDashCooldown = dashCooldown;
             Invoke("EndDash", DashDuration);
         }
     }
-    public void EndDash()
-    {
-        PlayerScript.canMove = true;
-    }
+    public void EndDash() => PlayerScript.canMove = true;
 }
