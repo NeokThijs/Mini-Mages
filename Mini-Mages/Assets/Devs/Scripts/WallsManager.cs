@@ -103,6 +103,7 @@ public class WallsManager : MonoBehaviour
         if (!GotWall && currentWall == null)
         {
             SelectRandomWalls();
+            //SelectWalls();
         }
 
         switch (state)
@@ -171,6 +172,37 @@ public class WallsManager : MonoBehaviour
         usedWalls.Add(newWall); // de muur die is gebruikt
         Debug.Log("Got Wall: " + currentWall.name);
     }
+
+    //private void SelectWalls()
+    //{
+    //    var availableWalls = walls
+    //        .Select(w => w.GetComponent<WallObjectSelf>()) // w is de muur 
+    //        .Where(w => !usedWalls.Contains(w))
+    //        .ToList();
+
+    //    if (availableWalls.Count == 0)
+    //    {
+    //        // als alle muren zijn geweest verwijderd ie ze allemaal/leegt ie de list
+    //        usedWalls.Clear();
+    //        availableWalls = walls.Select(w => w.GetComponent<WallObjectSelf>()).ToList();
+    //    }
+
+    //    var Wall2Add = availableWalls[Random.Range(0, availableWalls.Count)];
+
+    //    if ( currentWallsGroup.Count == 0)
+    //    {
+    //        currentWallsGroup.Add(Wall2Add);
+    //        if(currentWallsGroup.Count == 3)
+    //        {
+    //            var NewWall = currentWallsGroup[Random.Range(0, currentWallsGroup.Count)];
+
+    //            currentWall = NewWall;
+    //            GotWall = true;
+    //            usedWalls.Add(NewWall); // de muur die is gebruikt
+    //            Debug.Log("Got Wall: " + currentWall.name);
+    //        }
+    //    }
+    //}
 
     private void WallsUpAndDown()
     {
