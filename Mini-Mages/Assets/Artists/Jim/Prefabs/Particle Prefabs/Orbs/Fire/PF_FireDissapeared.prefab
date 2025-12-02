@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5649122052036323328}
   - component: {fileID: 6429705823110053948}
   - component: {fileID: 3390847778297145503}
+  - component: {fileID: 2616205507395332212}
   m_Layer: 0
   m_Name: PF_FireDissapeared
   m_TagString: Untagged
@@ -117,3 +118,16 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2616205507395332212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245766722097059653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d8bd7165387324891f6e2c2d9c4892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CleanupAfterCompletion
+  lifetime: 2

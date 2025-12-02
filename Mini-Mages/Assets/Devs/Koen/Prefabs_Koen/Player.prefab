@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fc60a8f291f4940a3d660fac685349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  DashForce: 15
+  DashForce: 25
   dashCooldown: 2
   DashDuration: 0.3
   currentDashCooldown: 0
@@ -250,9 +250,6 @@ MonoBehaviour:
   FireIndicator: {fileID: 4500151118248786352}
   LightningIndicator: {fileID: 1131149165488996798}
   CurrentIndicator: {fileID: 0}
-  lightningCollectionParticle: {fileID: 4403621782799204061, guid: 49f7fabbbfbeb9347b16fc7119e6f3d4, type: 3}
-  fireCollectionParticle: {fileID: 0}
-  windCollectionParticle: {fileID: 0}
   AttackAmount: 0
 --- !u!65 &3335541262371261430
 BoxCollider:
@@ -968,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5556186602534593919, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.013940001
       objectReference: {fileID: 0}
     - target: {fileID: 5556186602534593919, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: m_LocalScale.y
@@ -988,7 +985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5556186602534593919, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.676
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 5556186602534593919, guid: 0a589e39fcba2e8438cb10acc149b7c9, type: 3}
       propertyPath: m_LocalRotation.w
