@@ -5488,7 +5488,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617562}
   m_ExposedName: Stick Distance
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -5889,7 +5889,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617574}
   m_ExposedName: Stick Force
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -6290,7 +6290,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617586}
   m_ExposedName: Speed Multiplier
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -11660,7 +11660,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617869}
   m_ExposedName: LifetimeFlare
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -11741,7 +11741,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617871}
   m_ExposedName: FlareSize
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -15635,7 +15635,7 @@ MonoBehaviour:
   - {fileID: 8926484042661618014}
   m_ExposedName: SoftLifetime
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -15716,7 +15716,7 @@ MonoBehaviour:
   - {fileID: 8926484042661618016}
   m_ExposedName: SoftSize
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -16113,7 +16113,7 @@ MonoBehaviour:
   - {fileID: 8926484042661618028}
   m_ExposedName: Alpha
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
