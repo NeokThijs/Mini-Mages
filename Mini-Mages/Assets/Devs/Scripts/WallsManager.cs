@@ -24,14 +24,20 @@ public class WallsManager : MonoBehaviour
 
     private HashSet<WallObjectSelf> usedWalls = new HashSet<WallObjectSelf>(); // voor de gebruikte muren
 
+    [Header("Buiten Muren")]
+    [SerializeField] private GameObject OutsideRing; // buiten
+    [SerializeField] private GameObject InsideRing; // "binnen"
+    public float RoundTimer;
+
     void Start()
     {
-        WallsUpBeginGame();
+        WallsUpAndDown();
     }
 
     void Update()
     {
         WallTimer += Time.deltaTime;
+        RoundTimer += Time.deltaTime;
         if (WallTimer >= TimerInterval && state != WallHeight.Down)
         {
             lastWall = currentWall;
@@ -48,6 +54,16 @@ public class WallsManager : MonoBehaviour
             state = WallHeight.Down;
             WallTimer = 0;
         }
+
+        if (RoundTimer >= 50)
+        {
+            OutsideRingGoDown();
+        }
+        if (RoundTimer >= 75)
+        {
+            InsideRingGoDown();
+        }
+
 
         if (state == WallHeight.Down)
         {
@@ -156,7 +172,7 @@ public class WallsManager : MonoBehaviour
         Debug.Log("Got Wall: " + currentWall.name);
     }
 
-    private void WallsUpBeginGame()
+    private void WallsUpAndDown()
     {
         if (WallsGoUp.Count == 0)
         {
@@ -183,6 +199,19 @@ public class WallsManager : MonoBehaviour
             wall.transform.position = new Vector3(wall.transform.position.x, WOScript.maxHeight, wall.transform.position.z); // plaats ze op de correcte hoogte
         }
     }
+
+    private void OutsideRingGoDown()
+    {
+        OutsideWalls OWScript = OutsideRing.GetComponent<OutsideWalls>(); // OW = OutsideWall
+        OWScript.MoveDown();
+    }
+
+    private void InsideRingGoDown()
+    {
+        OutsideWalls IWScript = InsideRing.GetComponent<OutsideWalls>(); // IW = InsideWall
+        IWScript.MoveDown();
+    }
+
 
     // uitvoering voor in code
     // pakt 3 muren van de muren die je kan pakken
