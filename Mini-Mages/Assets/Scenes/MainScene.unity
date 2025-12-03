@@ -2439,6 +2439,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 22.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.033215724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 22.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.28
       objectReference: {fileID: 0}
@@ -2477,6 +2489,10 @@ PrefabInstance:
     - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882972179189876608, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977957908405632915, guid: d56c4c8d153f58f4bb1c87d7c74bcd5d, type: 3}
       propertyPath: m_Name
@@ -3676,7 +3692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
-  minHeight: -2
+  minHeight: -5
   ObjectSpeed: 1
 --- !u!1001 &641405784
 PrefabInstance:
@@ -5541,10 +5557,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2236905497265406417, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3568799108455926499, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b265908a7d5690e4bb44a85aa9fddcb1, type: 2}
+    - target: {fileID: 3628387422660318196, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 5553648340467152116, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -5592,6 +5616,10 @@ PrefabInstance:
     - target: {fileID: 8501976581231764663, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
       propertyPath: m_TagString
       value: MiniWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703897416703591001, guid: bc7b7a48bc7dd1c41b077adbee8edbd8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5866,6 +5894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 637413784}
     - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: BigCollider
+      value: 
+      objectReference: {fileID: 593588026}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
       propertyPath: OutsideRing
       value: 
       objectReference: {fileID: 1931455844}
@@ -5873,6 +5905,10 @@ PrefabInstance:
       propertyPath: TimerInterval
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
+      propertyPath: MiddleCollider
+      value: 
+      objectReference: {fileID: 815558390}
     - target: {fileID: 7293097755546954082, guid: 622da865b887f134997b65ea877922d4, type: 3}
       propertyPath: 'walls.Array.data[0]'
       value: 
@@ -11082,7 +11118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
-  minHeight: -2
+  minHeight: -5
   ObjectSpeed: 1
 --- !u!1001 &1953978392
 PrefabInstance:
