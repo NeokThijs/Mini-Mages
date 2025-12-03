@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
     private ChangeKnockback changeKnockBack;
 
+    public bool isDead = false;
+
     void Start()
     {
         changeKnockBack = GetComponent<ChangeKnockback>();
@@ -150,7 +152,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("DeathWater"))
         {
             RemoveFromPlayerList();
-            Destroy(gameObject);
+            isDead = true;
+            //Destroy(gameObject);
         }
     }
 
