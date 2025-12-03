@@ -11,12 +11,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        foreach(var g in  XInputController.all)
-        {
-            Debug.Log("xinput found: "+ g.deviceId);
-            Debug.Log(g.device.enabled);
-        }
-        
     }
     public void SetSpawn(PlayerInput player)
     {

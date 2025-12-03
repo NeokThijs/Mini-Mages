@@ -30,7 +30,7 @@ public class WallsManager : MonoBehaviour
 
     void Start()
     {
-
+        //WallsUpAndDown();
     }
 
     void Update()
@@ -137,7 +137,7 @@ public class WallsManager : MonoBehaviour
                     currentWall.Neutral();
                     if (currentWall.IsResetToNeutral())
                     {
-                        Debug.Log("Wall reset to neutral.");
+                        //Debug.Log("Wall reset to neutral.");
                         currentWall = null;
                         GotWall = false;
                         //Debug.Log("word null en false");
@@ -194,15 +194,8 @@ public class WallsManager : MonoBehaviour
         foreach (var wall in WallsGoUp) // loopt door de objecten heen
         {
             WallObjectSelf WOScript = wall.GetComponent<WallObjectSelf>();
-            
 
-            wall.transform.position = Vector3.Lerp(wall.transform.position, wall.transform.position + new Vector3(0, WOScript.maxHeight, 0), Time.unscaledDeltaTime * WOScript.ObjectSpeed); // plaats ze op de correcte hoogte
-            Debug.Log("begin muur omhoog");
-
-            if ( wall.transform.position.y >= WOScript.maxHeight)
-            {
-                wall.transform.position = new Vector3(0, WOScript.maxHeight, 0);
-            }
+            wall.transform.position = new Vector3(wall.transform.position.x, WOScript.maxHeight, wall.transform.position.z); // plaats ze op de correcte hoogte
         }
     }
 
