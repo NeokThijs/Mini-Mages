@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public bool WinnerInRound = false;
 
     [Header("Managers")]
-    public WallsManager WallsManager;
     public PlayerManager PlayerManager;
 
     void Start()
@@ -56,7 +55,6 @@ public class GameManager : MonoBehaviour
         StartUI.SetActive(true);
         Leaderboard.SetActive(false);
         Time.timeScale = 0f; // stop the game  
-        WallsManager = FindAnyObjectByType<WallsManager>();
     }
 
     void Update()
@@ -68,7 +66,6 @@ public class GameManager : MonoBehaviour
 
         if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
         {
-            WallsManager.RoundTimer = 0;
             winningPlayer = playersInGame[0].name;
             RemoveAllPickups();
             if (PlayerWins[0] == 3)
@@ -84,7 +81,6 @@ public class GameManager : MonoBehaviour
         {
             StartUI.SetActive(false);
             Time.timeScale = 1f; // continue game
-            WallsManager.WallsUpAndDown();
 
             if (isRoundActive == false)
             {
