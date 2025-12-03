@@ -25,7 +25,9 @@ public class WallsManager : MonoBehaviour
 
     [Header("Buiten Muren")]
     [SerializeField] private GameObject OutsideRing; // buiten
+    [SerializeField] private GameObject BigCollider;
     [SerializeField] private GameObject InsideRing; // "binnen"
+    [SerializeField] private GameObject MiddleCollider;
     public float RoundTimer;
 
     void Start()
@@ -202,12 +204,14 @@ public class WallsManager : MonoBehaviour
     private void OutsideRingGoDown()
     {
         OutsideWalls OWScript = OutsideRing.GetComponent<OutsideWalls>(); // OW = OutsideWall
+        BigCollider.SetActive(false);
         OWScript.MoveDown();
     }
 
     private void InsideRingGoDown()
     {
         OutsideWalls IWScript = InsideRing.GetComponent<OutsideWalls>(); // IW = InsideWall
+        MiddleCollider.SetActive(false);
         IWScript.MoveDown();
     }
 
