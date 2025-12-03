@@ -942,6 +942,22 @@ PrefabInstance:
       propertyPath: roundResultText
       value: 
       objectReference: {fileID: 1701767926}
+    - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
+      propertyPath: 'SpawnpointsPlayers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1871042302}
+    - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
+      propertyPath: 'SpawnpointsPlayers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1345144900}
+    - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
+      propertyPath: 'SpawnpointsPlayers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1510868214}
+    - target: {fileID: 2929539691581511298, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
+      propertyPath: 'SpawnpointsPlayers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 327659078}
     - target: {fileID: 2966477777728972195, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.65025
@@ -6940,7 +6956,7 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8251,7 +8267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6627663737283644022, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8091770881228693243, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace
@@ -11895,7 +11911,7 @@ Transform:
   m_GameObject: {fileID: 2099678066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2, y: -9, z: -16.4}
+  m_LocalPosition: {x: 2.2, y: -7, z: -16.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12637,9 +12653,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 546917751}
   - {fileID: 225429729}
+  - {fileID: 1234096939}
   - {fileID: 1417284596}
   - {fileID: 1255733332}
-  - {fileID: 1234096939}
   - {fileID: 1585002957}
   - {fileID: 604463408}
   - {fileID: 1911775292}

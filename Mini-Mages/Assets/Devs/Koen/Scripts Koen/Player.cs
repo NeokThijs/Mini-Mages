@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
         {
             RemoveFromPlayerList();
             isDead = true;
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
 
     public void RemoveFromPlayerList()
     {
-        //GameManager.instance.playersInGame.Remove(gameObject);
+        GameManager.instance.playersInGame.Remove(gameObject);
     }
 
     private void OnTriggerStay(Collider other)

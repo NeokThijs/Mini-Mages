@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
         if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
         {
+            Debug.Log("Ronde is afgelopen");
             winningPlayer = playersInGame[0].name;
             RemoveAllPickups();
             if (PlayerWins[0] == 3)
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRound()
     {
+        UIPlayerAmount();
         isRoundActive = true;
         RemoveOldPlayers();
         Leaderboard.SetActive(false);
@@ -134,17 +136,10 @@ public class GameManager : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player3"), 
                 GameObject.FindGameObjectWithTag("Player4")
             }; // alle players zoeken
-        playerScripts = new Player[]
-            {
-                players[0].GetComponent<Player>(),
-                players[1].GetComponent<Player>(),
-                players[2].GetComponent<Player>(),
-                players[3].GetComponent<Player>()
-            }; // alle player scripts zoeken
         for (int i = 0; i < players.Length; i++)
         {
             playersInGame.Add(players[i]);
-            targetGroup.AddMember(players[i].transform, 1, 0.5f);
+            //targetGroup.AddMember(players[i].transform, 1, 0.5f);
             Debug.Log("Voegt player toe a/d list");
         }
     }
