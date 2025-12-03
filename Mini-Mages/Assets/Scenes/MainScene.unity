@@ -9433,7 +9433,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6627663737283644022, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091770881228693243, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

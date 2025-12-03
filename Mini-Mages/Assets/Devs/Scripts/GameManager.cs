@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Registration")]
     public GameObject[] players; 
+    public Player[] playerScripts;
     private string[] playerNames = { "Red", "Blue", "Yellow", "Purple" };
     public string winningPlayer;
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Managers")]
     public WallsManager WallsManager;
+    public PlayerManager PlayerManager;
 
     void Start()
     {
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
         StartUI.SetActive(true);
         Leaderboard.SetActive(false);
         Time.timeScale = 0f; // stop the game  
-        //WallsManager = FindAnyObjectByType<WallsManager>();
+        WallsManager = FindAnyObjectByType<WallsManager>();
     }
 
     void Update()
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
 
         if (isRoundActive && playersInGame.Count == 1) // als geen ronde active is en telt hoeveel playerInGame zitten ( objecten)
         {
-            //WallsManager.RoundTimer = 0;
+            WallsManager.RoundTimer = 0;
             winningPlayer = playersInGame[0].name;
             RemoveAllPickups();
             if (PlayerWins[0] == 3)
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         {
             StartUI.SetActive(false);
             Time.timeScale = 1f; // continue game
+            WallsManager.WallsUpAndDown();
 
             if (isRoundActive == false)
             {
@@ -115,7 +118,11 @@ public class GameManager : MonoBehaviour
         Leaderboard.SetActive(false);
         Time.timeScale = 1f;
         roundAmount += 1;
-        Debug.Log("Nieuwe ronde start");
+        for (int i = 0; i < playerScripts.Length; i++)
+        {
+            playerScripts[i].isDead = false;
+        }
+            Debug.Log("Nieuwe ronde start");
         RoundsUI();
         SpawnPlayers();
         PlayerObjToList();
@@ -131,6 +138,13 @@ public class GameManager : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player3"), 
                 GameObject.FindGameObjectWithTag("Player4")
             }; // alle players zoeken
+        playerScripts = new Player[]
+            {
+                players[0].GetComponent<Player>(),
+                players[1].GetComponent<Player>(),
+                players[2].GetComponent<Player>(),
+                players[3].GetComponent<Player>()
+            }; // alle player scripts zoeken
         for (int i = 0; i < players.Length; i++)
         {
             playersInGame.Add(players[i]);
