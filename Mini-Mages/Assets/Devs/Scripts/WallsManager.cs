@@ -30,7 +30,7 @@ public class WallsManager : MonoBehaviour
 
     void Start()
     {
-        WallsUpAndDown();
+
     }
 
     void Update()
