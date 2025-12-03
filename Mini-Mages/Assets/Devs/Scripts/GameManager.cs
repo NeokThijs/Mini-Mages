@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public bool isRoundActive = false;
 
     [SerializeField] private GameObject StartUI;
+    private bool gameStarted = false;
     [SerializeField] private TMPro.TMP_InputField playerAmountIF; // IF = inputfield
     public float removeStartUI = 0;
 
@@ -78,10 +79,12 @@ public class GameManager : MonoBehaviour
 
         removeStartUI += Time.unscaledDeltaTime; // timer voor geen pauze dr in
 
-        if (removeStartUI >= 12)
+        if (removeStartUI >= 12 && gameStarted == false)
         {
             StartUI.SetActive(false);
             Time.timeScale = 1f; // continue game
+            gameStarted = true;
+            UIPlayerAmount();
 
             if (isRoundActive == false)
             {
@@ -110,17 +113,16 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRound()
     {
-        UIPlayerAmount();
         isRoundActive = true;
         RemoveOldPlayers();
         Leaderboard.SetActive(false);
         Time.timeScale = 1f;
         roundAmount += 1;
-        for (int i = 0; i < playerScripts.Length; i++)
-        {
-            playerScripts[i].isDead = false;
-        }
-            Debug.Log("Nieuwe ronde start");
+        //for (int i = 0; i < playerScripts.Length; i++)
+        //{
+        //    playerScripts[i].isDead = false;
+        //}
+        Debug.Log("Nieuwe ronde start");
         RoundsUI();
         SpawnPlayers();
         PlayerObjToList();
