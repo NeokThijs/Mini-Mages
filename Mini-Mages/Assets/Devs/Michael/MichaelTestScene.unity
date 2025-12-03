@@ -617,9 +617,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5014242753923242499, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1082764420881107888, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
       propertyPath: m_Name
       value: arena _plus walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 994791278712891601, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673191000486606808, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575549655109946845, guid: a68e8b8a560fd544f98bae3ae55b9c58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
