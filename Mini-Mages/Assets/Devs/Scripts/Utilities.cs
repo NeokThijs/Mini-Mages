@@ -5,6 +5,7 @@ public class Utilities : MonoBehaviour
 {
     public GameObject gameManager;
     private GameManager GameManager;
+    public GameObject creditImage;
     private void Start()
     {
         if (gameManager != null)
@@ -42,5 +43,9 @@ public class Utilities : MonoBehaviour
     public void MichaelScene()
     {
         SceneManager.LoadScene("MichaelTestScene");
+    }
+    public void Credits()
+    {
+        creditImage.SetActive(!creditImage.activeInHierarchy);
     }
 }

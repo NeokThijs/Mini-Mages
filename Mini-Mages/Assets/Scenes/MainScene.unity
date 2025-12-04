@@ -8179,6 +8179,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 787009085964683741, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033943252448794690, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865736480905096861, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -89.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2377414731716596428, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
