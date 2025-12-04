@@ -113,19 +113,15 @@ public class GameManager : MonoBehaviour
 
     public void StartNewRound()
     {
-        isRoundActive = true;
         RemoveOldPlayers();
+        SpawnPlayers();
+        PlayerObjToList();
         Leaderboard.SetActive(false);
         Time.timeScale = 1f;
         roundAmount += 1;
-        //for (int i = 0; i < playerScripts.Length; i++)
-        //{
-        //    playerScripts[i].isDead = false;
-        //}
+        isRoundActive = true;
         Debug.Log("Nieuwe ronde start");
         RoundsUI();
-        SpawnPlayers();
-        PlayerObjToList();
     }
 
     private void PlayerObjToList()
@@ -141,7 +137,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             playersInGame.Add(players[i]);
-            //targetGroup.AddMember(players[i].transform, 1, 0.5f);
             Debug.Log("Voegt player toe a/d list");
         }
     }
@@ -157,8 +152,6 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayers()
     {
-        isRoundActive = true;
-        
         List<Transform> availableSpawns = new List<Transform>(SpawnpointsPlayers); // nieuwe list
 
         for (int i = 0; i < PlayerAmount; i++)
