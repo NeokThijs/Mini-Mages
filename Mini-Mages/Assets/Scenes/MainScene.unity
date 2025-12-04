@@ -4492,7 +4492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
-  minHeight: -5
+  minHeight: -7.1
   ObjectSpeed: 1
 --- !u!1001 &641405784
 PrefabInstance:
@@ -13303,7 +13303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee48e0ec4f2704891184dd7b1eba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
-  minHeight: -5
+  minHeight: -7.1
   ObjectSpeed: 1
 --- !u!1 &1932244844 stripped
 GameObject:
