@@ -2799,6 +2799,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5419557889797078392, guid: 6b212968f5ca13f4f8a65676df44327a, type: 3}
   m_PrefabInstance: {fileID: 515390100}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &524933436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 787009085964683741, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+  m_PrefabInstance: {fileID: 1417284596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &524933441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524933436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f47d9db56ddb76489e5f61504c44d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Utilities
+  gameManager: {fileID: 1932244844}
 --- !u!1001 &531591157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8161,6 +8179,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2377414731716596428, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 524933441}
+    - target: {fileID: 2377414731716596428, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAnotherRound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377414731716596428, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Utilities, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2833765296353905324, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -8276,7 +8306,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 787009085964683741, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 524933441}
   m_SourcePrefab: {fileID: 100100000, guid: 38d51786ae628a4459d50b0c29fc55bd, type: 3}
 --- !u!1001 &1422121668
 PrefabInstance:
@@ -11136,6 +11169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutsideWalls
   minHeight: -5
   ObjectSpeed: 1
+--- !u!1 &1932244844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6108119754328263425, guid: 26e85a647c8f0b64a9dbbb906618cfbb, type: 3}
+  m_PrefabInstance: {fileID: 225429729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1953978392
 PrefabInstance:
   m_ObjectHideFlags: 0
